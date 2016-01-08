@@ -1,0 +1,62 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: "Lato", sans-serif;
+  font-size: 100%;
+  line-height: 1.4;
+  margin: 0 auto;
+  padding: 2em 1em;
+  max-width: 700px;
+}
+header {
+  padding: 2em 0;
+  border-bottom: 1px solid #ddd;
+  overflow: auto;
+  margin-bottom: 4em;
+  line-height: 47px;
+}
+header > .logo {
+  float: right;
+  height: 47px;
+  width: 200px;
+}
+@media print {
+  header > .back {
+    display: none;
+  }
+}
+.btn {
+  border: 1px solid #bbb;
+  padding: .4em .8em;
+  color: #bbb;
+  border-radius: 0.3em;
+  font-size: 80%;
+  text-decoration: none;
+}
+.btn:hover {
+  border-color: #64a2d1;
+  color: #64a2d1;
+}
+main a {
+  color: #64a2d1;
+  text-decoration: none;
+}
+main a:hover {
+  text-decoration: underline;
+}
+main h2 ~ p {
+  text-align: justify;
+}
+main h1 {
+  font-size: 200%;
+  font-weight: normal;
+  margin: 2em 0 .7em 0;
+}
+main h2 {
+  font-size: 150%;
+  font-weight: normal;
+  margin: 1.2em 0 .7em 0;
+}
+main h1 + h2 {
+  margin-top: .7em;
+}

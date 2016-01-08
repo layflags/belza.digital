@@ -1,0 +1,194 @@
+html {
+  background-color: #fff;
+}
+
+body {
+  color: #333;
+  padding: 10% 5% 10% 55%;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-size: 100%;
+  line-height: 1.4;
+  max-width: 450px;
+}
+
+h1, h2 {
+  margin: 1.7em 0 .7em 0;
+}
+p, ul, dl {
+  margin: .7em 0;
+}
+
+header {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background: url(martin-belza.jpg) no-repeat center top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+header * {
+  display: none;
+}
+.name {
+  color: #5c5c5c;
+  font-size: 3.5em;
+  font-weight: normal;
+  margin: .7em 0 0 0;
+  line-height: 1;
+}
+.job-title {
+  color: #64a2d1;
+  font-size: 1.7em;
+  margin-top: 0.3em;
+}
+h2 {
+  font-size: 1em;
+  font-weight: bold;
+}
+strong {
+  font-weight: normal;
+}
+a {
+  color: #64a2d1;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+li {
+  margin: .2em 0;
+  padding: 0;
+}
+
+ul.reasons li::before {
+  content: '✮';
+  margin-right: .5em;
+}
+
+dl.facts > dt {
+  position: absolute;
+  width: 1.2em;
+  overflow: hidden;
+  height: 1.2em;
+}
+dl.facts > dd,
+dl.facts > dt {
+  padding: .2em 0;
+}
+dl.facts > dd {
+  margin-left: 1.6em;
+}
+
+ul.skills {
+  margin: 0;
+}
+ul.skills > li {
+  display: inline-block;
+  margin: 0;
+}
+ul.skills > li::after {
+  content: ', ';
+}
+ul.skills > li:last-child::after {
+  content: '';
+}
+
+ul.links > li {
+  padding-left: 1.6em;
+  position: relative;
+}
+ul.links > li > small {
+  white-space: nowrap;
+}
+ul.links > li > .fa {
+  position: absolute;
+  left: 0;
+  margin: .2em 0 0 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,.9);
+}
+footer p {
+  margin: .3em 1em .5em 1em;
+}
+footer .copyright {
+  float: right;
+}
+
+/* mobile last ;) */
+
+@media (max-width: 800px) {
+  body {
+    padding-left: 45%;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    background: #fff url(martin-belza.jpg) no-repeat center top;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+  header {
+    display: none;
+  }
+  body {
+    padding: 58% 5% 5% 5%;
+    max-width: none;
+    font-size: 90%;
+  }
+
+  .name {
+    font-size: 2em;
+  }
+  .job-title {
+    font-size: 1.2em;
+  }
+
+  ul.links > li {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px dotted #999;
+  }
+  ul.links > li:last-child {
+    border: none;
+  }
+
+  footer {
+    position: static;
+    border-top: 1px dotted;
+    background: none;
+    margin-top: 2em;
+    color: #999;
+  }
+  footer p {
+    margin: 1em 0 0 0;
+  }
+  footer .copyright {
+    float: none;
+    text-align: right;
+  }
+  footer a.legal {
+    white-space: nowrap;
+  }
+}
+
