@@ -65,7 +65,7 @@ h1 {
 @media (max-width: 640px) {
   .btn.consulting {
     font-size: 100%;
-    top: -15px;
+    top: 5px;
   }
 }
 
