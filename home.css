@@ -5,6 +5,11 @@ html {
   font-size: 100%;
   line-height: 1.4;
 }
+@media (max-width: 640px) {
+  html {
+    font-size: 88%;
+  }
+}
 html, body, main {
   position: absolute;
   width: 100%;
@@ -59,7 +64,7 @@ h1 {
 }
 @media (max-width: 640px) {
   .btn.consulting {
-    font-size: 90%;
+    font-size: 100%;
     top: -15px;
   }
 }
@@ -86,11 +91,17 @@ footer a:hover {
   text-decoration: underline;
 }
 @media (max-width: 640px) {
+  footer {
+    text-align: center;
+  }
   footer .copyright {
     float: none;
   }
   footer a.legal {
     white-space: nowrap;
+  }
+  footer .hosting {
+    display: none;
   }
 }
 
