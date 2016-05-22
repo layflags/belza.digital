@@ -73,7 +73,7 @@ li {
 }
 
 ul.reasons li::before {
-  content: '✮';
+  content: '★';
   margin-right: .5em;
 }
 
