@@ -1,0 +1,37 @@
+{
+  "name": "belza.digital",
+  "version": "1.0.0",
+  "description": "The corporate website of Belza Digital GmbH",
+  "scripts": {
+    "watch:templates": "nodemon --ext html --watch templates bin/compile",
+    "prestart": "npm run -s build",
+    "start": "concurrently -k 'npm run -s watch:templates' 'live-server build'",
+    "build:clean": "rm -rf build && mkdir build",
+    "build:static": "cp -r static/ build/",
+    "build": "npm run -s build:clean && npm run -s build:static && bin/compile",
+    "predeploy": "npm run -s build",
+    "deploy": "surge --domain belza.digital"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/layflags/belza.digital.git"
+  },
+  "keywords": [
+    "belza",
+    "digital",
+    "consulting"
+  ],
+  "author": "Martin Belza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/layflags/belza.digital/issues"
+  },
+  "homepage": "https://github.com/layflags/belza.digital#readme",
+  "devDependencies": {
+    "concurrently": "^2.1.0",
+    "ejs": "^2.4.2",
+    "live-server": "^1.0.0",
+    "nodemon": "^1.9.2",
+    "surge": "^0.18.0"
+  }
+}
