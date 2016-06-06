@@ -10,7 +10,7 @@
     "build:static": "cp -r static/ build/",
     "build": "npm run -s build:clean && npm run -s build:static && bin/compile",
     "predeploy": "npm run -s build",
-    "deploy": "surge --domain belza.digital"
+    "deploy": "surge build --domain belza.digital"
   },
   "repository": {
     "type": "git",
