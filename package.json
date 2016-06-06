@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "The corporate website of Belza Digital GmbH",
   "scripts": {
-    "watch:templates": "nodemon --ext html --watch templates bin/compile",
+    "watch:templates": "nodemon --ext ejs --watch templates bin/compile",
     "prestart": "npm run -s build",
     "start": "concurrently -k 'npm run -s watch:templates' 'live-server build'",
     "build:clean": "rm -rf build && mkdir build",
