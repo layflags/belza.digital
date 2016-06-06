@@ -8,9 +8,7 @@
     "start": "concurrently -k 'npm run -s watch:templates' 'live-server build'",
     "build:clean": "rm -rf build && mkdir build",
     "build:static": "cp -r static/ build/",
-    "build": "npm run -s build:clean && npm run -s build:static && bin/compile",
-    "predeploy": "npm run -s build",
-    "deploy": "surge build --domain belza.digital"
+    "build": "npm run -s build:clean && npm run -s build:static && bin/compile"
   },
   "repository": {
     "type": "git",
@@ -31,7 +29,6 @@
     "concurrently": "^2.1.0",
     "ejs": "^2.4.2",
     "live-server": "^1.0.0",
-    "nodemon": "^1.9.2",
-    "surge": "^0.18.0"
+    "nodemon": "^1.9.2"
   }
 }
