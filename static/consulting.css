@@ -72,6 +72,17 @@ li {
   padding: 0;
 }
 
+.fa-icon {
+  width: 1em;
+  position: relative;
+  top: 0.1em;
+  margin-right: 0.3em;
+}
+
+.contact .fa-icon {
+  display: inline-block;
+}
+
 ul.reasons li::before {
   content: '★';
   margin-right: .5em;
@@ -112,10 +123,9 @@ ul.links > li {
 ul.links > li > small {
   white-space: nowrap;
 }
-ul.links > li > .fa {
+ul.links > li > .fa-icon {
   position: absolute;
   left: 0;
-  margin: .2em 0 0 0;
 }
 
 footer {
@@ -171,6 +181,9 @@ footer .copyright {
   }
   ul.links > li:last-child {
     border: none;
+  }
+  ul.links > li > .fa-icon {
+    top: 1.1em;
   }
 
   footer {
