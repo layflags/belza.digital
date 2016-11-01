@@ -26,7 +26,7 @@ header {
   height: 100%;
   bottom: 0;
   left: 0;
-  background: url(martin-belza.jpg) no-repeat center top;
+  background: #f4f4f4 url(martin-belza.jpg) no-repeat center top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -155,18 +155,16 @@ footer .copyright {
 }
 
 @media (max-width: 640px) {
-  html {
-    background: #fff url(martin-belza.jpg) no-repeat center top;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-  }
   header {
-    display: none;
+    height: 200px;
+    height: 52vmin;
+    top: 0;
+    position: absolute;
+    background-position-y: center;
   }
   body {
-    padding: 58% 5% 5% 5%;
+    padding: 220px 5% 5% 5%;
+    padding-top: 56vmin;
     max-width: none;
     font-size: 90%;
   }
