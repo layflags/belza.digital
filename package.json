@@ -9,8 +9,9 @@
     "start": "concurrently -k 'npm run -s watch:static' 'npm run -s watch:templates' 'live-server build'",
     "build:clean": "rm -rf build && mkdir build",
     "build:static": "cp -r static/ build/",
+    "build:compress": "for f in build/*.html; do inline-assets --htmlmin --cssmin --pattern 'css$' --verbose $f $f; done",
     "build": "npm run -s build:clean && npm run -s build:static && bin/compile",
-    "predeploy": "npm run -s build",
+    "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css",
     "deploy": "surge build --domain belza.digital"
   },
   "repository": {
@@ -31,6 +32,7 @@
   "devDependencies": {
     "concurrently": "^2.1.0",
     "ejs": "^2.4.2",
+    "inline-assets": "^1.1.1",
     "live-server": "^1.0.0",
     "nodemon": "^1.9.2",
     "surge": "^0.18.0"
