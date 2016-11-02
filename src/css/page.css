@@ -14,11 +14,20 @@ body {
     padding: 1em;
   }
 }
+a {
+  color: #64a2d1;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 header {
   padding: 2em 0;
   border-bottom: 1px solid #ddd;
   margin-bottom: 4em;
-  line-height: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 @media (max-width: 640px) {
   header {
@@ -28,11 +37,15 @@ header {
 }
 header > .logo {
   float: right;
-  height: 47px;
-  width: 200px;
+  height: 3em;
+  width: 2em;
+  & > svg {
+    height: 100%;
+    width: 100%;
+  }
 }
 @media print {
-  header > .back {
+  header > .btn-back {
     display: none;
   }
 }
@@ -45,15 +58,9 @@ header > .logo {
   text-decoration: none;
 }
 .btn:hover {
+  text-decoration: none;
   border-color: #64a2d1;
   color: #64a2d1;
-}
-main a {
-  color: #64a2d1;
-  text-decoration: none;
-}
-main a:hover {
-  text-decoration: underline;
 }
 main h2 ~ p {
   text-align: justify;

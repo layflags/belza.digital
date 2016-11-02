@@ -4,12 +4,14 @@
     <%- include('_meta_defaults') %>
     <title>Impressum</title>
     <link rel="stylesheet" href="page.css" />
-    <%- include('_favicons') %>
+    <%- include('_favicons', {
+      themeColor: '#ffffff'
+    }) %>
   </head>
   <body>
     <header>
-      <a href="/" class="logo"><%- include('_ci/belza-digital-logo-h.svg') %></a>
-      <a class="btn back" href="/" onclick="history.back()">zurück</a>
+      <a class="btn btn-back" href="/" onclick="history.back()">zurück</a>
+      <a href="/" class="logo" title="back home"><%- include('_ci/logo-lightbg.svg') %></a>
     </header>
 
     <main>
