@@ -5,7 +5,7 @@
   "scripts": {
     "watch:templates": "NODE_ENV=development nodemon --ext ejs --watch src/templates bin/compile",
     "watch:css": "npm run -s build:css -- --watch",
-    "prestart": "npm run -s build",
+    "predev": "npm run -s build",
     "dev": "concurrently -k 'npm run -s watch:css' 'npm run -s watch:templates' 'browser-sync start --port 3333 --server build --files build'",
     "build:clean": "rm -rf build && mkdir build",
     "build:static": "cp -r src/static/ build/",
