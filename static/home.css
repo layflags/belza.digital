@@ -10,78 +10,73 @@ html {
     font-size: 88%;
   }
 }
-html, body, main {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  animation: Digital 58s ease infinite;
+  background: linear-gradient(240deg, #2dc9a1, #c9552d, #2d78c9, #c9c32d);
+  background-size: 800% 800%;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
 }
 
 main {
-  background: linear-gradient(240deg, #2dc9a1, #c9552d, #2d78c9, #c9c32d);
-  background-size: 800% 800%;
-  -webkit-animation: Digital 58s ease infinite;
-  -moz-animation: Digital 58s ease infinite;
-  -o-animation: Digital 58s ease infinite;
-  animation: Digital 58s ease infinite;
-  overflow: hidden;
-  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .logo {
-  margin: 0 auto;
-  height: 80%;
-  width: 50%;
-  max-width: 560px;
-}
-.logo > svg {
-  width: 100%;
-  height: 100%;
   fill: #fff;
+  margin: 5vmin;
+  max-width: 500px;
 }
-@media (max-width: 640px) {
-  h1 {
-    height: 70%;
-  }
-}
+
 .btn {
   border: 1px solid rgba(255,255,255,.5);
-  padding: .4em .8em;
-  color: rgba(255,255,255,.5);
   border-radius: 0.3em;
+  color: rgba(255,255,255,.5);
+  padding: .4em .8em;
   text-decoration: none;
-  font-weight: lighter;
-  -webkit-transition: color .5s, border-color .5s;
-  -moz-transition: color .5s, border-color .5s;
-  -o-transition: color .5s, border-color .5s;
   transition: color .5s, border-color .5s;
 }
 .btn:hover {
   border-color: #fff;
   color: #fff;
 }
+
 .btn.consulting {
-  position: relative;
-  top: -30px;
+  display: inline-block;
   font-size: 120%;
-}
-@media (max-width: 640px) {
-  .btn.consulting {
-    font-size: 100%;
-    top: 5px;
-  }
+  font-weight: lighter;
+  margin: 5vmin;
+  margin-top: 0;
+  text-align: center;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   background: rgba(255,255,255,.15);
-  color: rgba(255,255,255,.75)
+  color: rgba(255,255,255,.75);
+  padding: .5em 1em .5em 1em;
 }
 footer p {
-  margin: .3em 1em .5em 1em;
+  margin: 0;
 }
 footer .copyright {
   float: right;
@@ -108,21 +103,6 @@ footer a:hover {
   }
 }
 
-@-webkit-keyframes Digital {
-  0%{background-position:0% 78%}
-  50%{background-position:100% 23%}
-  100%{background-position:0% 78%}
-}
-@-moz-keyframes Digital {
-  0%{background-position:0% 78%}
-  50%{background-position:100% 23%}
-  100%{background-position:0% 78%}
-}
-@-o-keyframes Digital {
-  0%{background-position:0% 78%}
-  50%{background-position:100% 23%}
-
-}
 @keyframes Digital {
   0%{background-position:0% 78%}
   50%{background-position:100% 23%}

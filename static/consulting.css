@@ -27,9 +27,6 @@ header {
   bottom: 0;
   left: 0;
   background: #f4f4f4 url(martin-belza.jpg) no-repeat center top;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 header * {
