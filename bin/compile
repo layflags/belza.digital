@@ -4,7 +4,7 @@ const ejs = require('ejs')
 const fs = require('fs')
 
 const BUILD_FOLDER = 'build/'
-const TEMPLATES_FOLDER = 'templates/'
+const TEMPLATES_FOLDER = 'src/templates/'
 
 const options = { rmWhitespace: true }
 const data = process.env.NODE_ENV === 'development' ? {
