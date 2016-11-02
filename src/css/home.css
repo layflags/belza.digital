@@ -4,7 +4,7 @@ html {
   background: linear-gradient(
     240deg,
     var(--primary-color),
-    color(var(--primary-color) shade(20%))
+    color(var(--primary-color) shade(30%))
   );
   color: white;
   font-family: sans-serif;
