@@ -4,13 +4,14 @@
   "description": "The corporate website of Belza Digital GmbH",
   "scripts": {
     "watch:templates": "NODE_ENV=development nodemon --ext ejs --watch src/templates bin/compile",
-    "watch:static": "nodemon --ext css,svg,jpg,png --watch src/static -x \"npm run -s build:static\"",
+    "watch:css": "npm run -s build:css -- --watch",
     "prestart": "npm run -s build",
-    "start": "concurrently -k 'npm run -s watch:static' 'npm run -s watch:templates' 'live-server build'",
+    "dev": "concurrently -k 'npm run -s watch:css' 'npm run -s watch:templates' 'browser-sync start --port 3333 --server build --files build'",
     "build:clean": "rm -rf build && mkdir build",
     "build:static": "cp -r src/static/ build/",
+    "build:css": "postcss --use postcss-cssnext --dir build src/css/*.css",
     "build:compress": "for f in build/*.html; do inline-assets --htmlmin --cssmin --pattern 'css$' --verbose $f $f; done",
-    "build": "npm run -s build:clean && npm run -s build:static && bin/compile",
+    "build": "npm run -s build:clean && npm run -s build:static && npm run -s build:css && bin/compile",
     "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css",
     "deploy": "surge build --domain belza.digital"
   },
@@ -30,11 +31,13 @@
   },
   "homepage": "https://github.com/layflags/belza.digital#readme",
   "devDependencies": {
+    "browser-sync": "^2.17.5",
     "concurrently": "^2.1.0",
     "ejs": "^2.4.2",
     "inline-assets": "^1.1.1",
-    "live-server": "^1.0.0",
     "nodemon": "^1.9.2",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.8.0",
     "surge": "^0.18.0"
   }
 }

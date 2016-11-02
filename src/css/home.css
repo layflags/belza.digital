@@ -46,6 +46,7 @@ main {
   fill: #fff;
   margin: 5vmin;
   max-width: 500px;
+  width: 80%;
 }
 
 .btn {
@@ -64,7 +65,6 @@ main {
 .btn.consulting {
   display: inline-block;
   font-size: 120%;
-  font-weight: lighter;
   margin: 5vmin;
   margin-top: 0;
   text-align: center;
