@@ -1,3 +1,6 @@
 :root {
   --primary-color: #64a2d1;
 }
+
+@custom-media --small-viewport (max-width: 640px);
+@custom-media --medium-viewport (max-width: 800px);

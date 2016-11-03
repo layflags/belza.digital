@@ -10,17 +10,16 @@ html {
   font-family: sans-serif;
   font-size: 100%;
   line-height: 1.4;
-}
-@media (max-width: 640px) {
-  html {
+
+  @media (--small-viewport) {
     font-size: 88%;
   }
 }
 
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 body {
@@ -29,11 +28,11 @@ body {
 }
 
 main {
-  flex-grow: 1;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
-  align-items: center;
 }
 
 .logo {
@@ -45,10 +44,12 @@ main {
   max-width: 640px;
   overflow: hidden;
   width: 100%;
+
   & .logo-darkbg {
     margin-bottom: 7.5vmin;
     width: 30%;
   }
+
   & .belza-digital {
     width: 75%;
   }
@@ -61,49 +62,56 @@ main {
   padding: .4em .8em;
   text-decoration: none;
   transition: color .5s, border-color .5s;
-}
-.btn:hover {
-  border-color: #fff;
-  color: #fff;
-}
 
-.btn.consulting {
-  display: inline-block;
-  font-size: 120%;
-  margin: 5vmin;
-  margin-top: 0;
-  text-align: center;
+  &:hover {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  &.consulting {
+    display: inline-block;
+    font-size: 120%;
+    margin: 5vmin;
+    margin-top: 0;
+    text-align: center;
+  }
 }
 
 footer {
   background: rgba(255,255,255,.15);
   color: rgba(255,255,255,.75);
   padding: .5em 1em .5em 1em;
-}
-footer p {
-  margin: 0;
-}
-footer .copyright {
-  float: right;
-}
-footer a {
-  color: rgba(255,255,255,.5);
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 640px) {
-  footer {
+
+  & p {
+    margin: 0;
+  }
+
+  & .copyright {
+    float: right;
+  }
+
+  & a {
+    color: rgba(255,255,255,.5);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (--small-viewport) {
     text-align: center;
-  }
-  footer .copyright {
-    float: none;
-  }
-  footer a.legal {
-    white-space: nowrap;
-  }
-  footer .hosting {
-    display: none;
+
+    & .copyright {
+      float: none;
+    }
+
+    & .legal {
+      white-space: nowrap;
+    }
+
+    & .hosting {
+      display: none;
+    }
   }
 }
