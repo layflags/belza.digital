@@ -1,3 +1,5 @@
+@import "_variables.css";
+
 html {
   background-color: #fff;
 }
@@ -59,7 +61,7 @@ header * {
   line-height: 1;
 }
 .job-title {
-  color: #64a2d1;
+  color: var(--primary-color);
   font-size: 1.7em;
   margin-top: 0.3em;
 }
@@ -71,7 +73,7 @@ strong {
   font-weight: normal;
 }
 a {
-  color: #64a2d1;
+  color: var(--primary-color);
   text-decoration: none;
 }
 a:hover {

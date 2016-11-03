@@ -1,3 +1,5 @@
+@import "_variables.css";
+
 body {
   background-color: #fff;
   color: #333;
@@ -15,7 +17,7 @@ body {
   }
 }
 a {
-  color: #64a2d1;
+  color: var(--primary-color);
   text-decoration: none;
 }
 a:hover {
@@ -59,8 +61,8 @@ header > .logo {
 }
 .btn:hover {
   text-decoration: none;
-  border-color: #64a2d1;
-  color: #64a2d1;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 main h2 ~ p {
   text-align: justify;
