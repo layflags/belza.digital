@@ -1,5 +1,11 @@
 @import "_variables.css";
 
+:root {
+  --slidein-duration: 500ms;
+  --slidein-initial-delay: 250ms;
+  --slidein-delay-between: 250ms;
+}
+
 html {
   background: linear-gradient(
     240deg,
@@ -20,6 +26,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
@@ -40,7 +47,7 @@ main {
   display: flex;
   flex-direction: column;
   margin: 5vmin;
-  margin-bottom: 10vh;
+  margin-bottom: 0;
   max-width: 640px;
   overflow: hidden;
   width: 100%;
@@ -51,6 +58,7 @@ main {
   }
 
   & .belza-digital {
+    margin-bottom: 10vh;
     width: 75%;
   }
 }
@@ -113,5 +121,59 @@ footer {
     & .hosting {
       display: none;
     }
+  }
+}
+
+#book-your-digital-consultant-now {
+  & .logo-darkbg {
+    animation:
+      var(--slidein-duration)
+      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 0)
+      both
+      slidein;
+  }
+  & .belza-digital {
+    animation:
+      var(--slidein-duration)
+      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 1)
+      both
+      slidein;
+  }
+  & .consulting {
+    animation:
+      var(--slidein-duration)
+      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 2)
+      both
+      slidein;
+  }
+  & footer {
+    animation:
+      var(--slidein-duration)
+      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 3)
+      both
+      slidein;
+  }
+
+  /* do not play animation when #book-your-digital-consultant-now is part of URL */
+
+  &:target {
+    & .logo-darkbg,
+    & .belza-digital,
+    & .consulting,
+    & footer {
+      animation: none;
+    }
+  }
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translate(0, 5vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
