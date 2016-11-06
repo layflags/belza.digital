@@ -27,7 +27,7 @@ fs.readdir(TEMPLATES_FOLDER, (err, filenames) => {
     .filter((filename) => filename.match(/^[^_].+\.ejs$/))
     .forEach((filename) => {
       const infile = TEMPLATES_FOLDER + filename
-      const outfile = BUILD_FOLDER + filename.replace(/ejs$/, 'html')
+      const outfile = BUILD_FOLDER + filename.replace(/\.ejs$/, '')
 
       ejs.renderFile(infile, data, options, (err, str) => {
         console.log('- ' + infile + ' -> ' + outfile)
