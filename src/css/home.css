@@ -1,9 +1,9 @@
 @import "_variables.css";
 
 :root {
-  --slidein-duration: 500ms;
-  --slidein-initial-delay: 250ms;
-  --slidein-delay-between: 250ms;
+  --anim-duration: 500ms;
+  --anim-initial-delay: 250ms;
+  --anim-delay-between: 250ms;
 }
 
 html {
@@ -34,6 +34,14 @@ body {
   flex-direction: column;
 }
 
+a {
+  color: #fff8;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 main {
   align-items: center;
   display: flex;
@@ -46,8 +54,7 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 5vmin;
-  margin-bottom: 0;
+  margin: 5vmin 0 0 0;
   max-width: 640px;
   overflow: hidden;
   width: 100%;
@@ -64,23 +71,26 @@ main {
 }
 
 .btn {
-  border: 1px solid rgba(255,255,255,.5);
+  border: 1px solid currentColor;
   border-radius: 0.3em;
-  color: rgba(255,255,255,.5);
+  color: currentColor;
+  opacity: .6;
   padding: .4em .8em;
   text-decoration: none;
-  transition: color .5s, border-color .5s;
+  transition: opacity .5s;
 
   &:hover {
-    border-color: #fff;
-    color: #fff;
+    opacity: .99;
+    text-decoration: none;
   }
+}
 
-  &--consulting {
+.action {
+  margin: 0 5vmin 5vmin 5vmin;
+
+  &-btn {
     display: inline-block;
     font-size: 120%;
-    margin: 5vmin;
-    margin-top: 0;
     text-align: center;
   }
 }
@@ -96,15 +106,6 @@ footer {
 
   & .copyright {
     float: right;
-  }
-
-  & a {
-    color: rgba(255,255,255,.5);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   @media (--small-viewport) {
@@ -127,22 +128,27 @@ footer {
 /* Intro animation */
 
 .anim {
-  animation: var(--slidein-duration) both slidein;
+  animation: var(--anim-duration) both slidein-animation;
 
   &--0 {
-    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 0);
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 0);
   }
 
   &--1 {
-    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 1);
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 1);
   }
 
   &--2 {
-    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 2);
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 2);
   }
 
   &--3 {
-    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 3);
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 3);
+  }
+
+  &--4 {
+    animation: var(--anim-duration) 3 pulse-animation;
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 5);
   }
 }
 
@@ -152,7 +158,7 @@ footer {
   animation: none;
 }
 
-@keyframes slidein {
+@keyframes slidein-animation {
   from {
     opacity: 0;
     transform: translate(0, 5vh);
@@ -161,5 +167,19 @@ footer {
   to {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    opacity: .6;
+  }
+
+  50% {
+    opacity: .99;
+  }
+
+  100% {
+    opacity: .6;
   }
 }
