@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" manifest="/auto.appcache">
   <head>
-    <%- include('_meta_defaults') %>
+    <%- include('_meta_defaults.html.ejs', {}) %>
     <title>Belza Digital - Book your Digital Consultant now!</title>
     <link href="home.css" rel="stylesheet" />
-    <%- include('_favicons', {}) %>
+    <%- include('_favicons.html.ejs', {}) %>
   </head>
   <body id="book-your-digital-consultant-now">
     <div class="bg"></div>
     <main>
       <div class="logo">
-        <%- include('_ci/logo-darkbg.svg.erb', { className: 'logo-signet anim anim--0' }) %>
-        <%- include('_ci/belza-digital.svg.erb', { className: 'logo-copy anim anim--1' }) %>
+        <%- include('_ci/logo-darkbg.svg.ejs', { className: 'logo-signet anim anim--0' }) %>
+        <%- include('_ci/belza-digital.svg.ejs', { className: 'logo-copy anim anim--1' }) %>
       </div>
       <a href="/consulting<%= hrefExt %>" class="btn btn--consulting anim anim--2">Book your Digital Consultant now!</a>
     </main>
-    <%- include('_footer', { className: 'anim anim--3' }) %>
-    <%- include('_ga') %>
+    <%- include('_footer.html.ejs', { className: 'anim anim--3' }) %>
+    <%- include('_ga.html.ejs') %>
   </body>
 </html>
