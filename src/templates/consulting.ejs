@@ -10,7 +10,7 @@
     <%- include('_favicons', { themeColor: '#ffffff', appName: 'Martin Belza' }) %>
   </head>
   <body>
-    <a href="/#book-your-digital-consultant-now" class="logo" title="back home"><%- include('_ci/logo-lightbg.svg') %></a>
+    <a href="/#book-your-digital-consultant-now" class="logo" title="back home"><%- include('_ci/logo-lightbg.svg.erb') %></a>
     <header>
       <h1>Belza Digital</h1>
       <p><strong>Let's make your project a success.</strong></p>
@@ -86,7 +86,7 @@
       </aside>
     </main>
 
-    <%- include('_footer') %>
+    <%- include('_footer', {}) %>
     <%- include('_ga') %>
   </body>
 </html>

@@ -52,12 +52,12 @@ main {
   overflow: hidden;
   width: 100%;
 
-  & .logo-darkbg {
+  &-signet {
     margin-bottom: 7.5vmin;
     width: 30%;
   }
 
-  & .belza-digital {
+  &-copy {
     margin-bottom: 10vh;
     width: 75%;
   }
@@ -76,7 +76,7 @@ main {
     color: #fff;
   }
 
-  &.consulting {
+  &--consulting {
     display: inline-block;
     font-size: 120%;
     margin: 5vmin;
@@ -124,46 +124,32 @@ footer {
   }
 }
 
-#book-your-digital-consultant-now {
-  & .logo-darkbg {
-    animation:
-      var(--slidein-duration)
-      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 0)
-      both
-      slidein;
-  }
-  & .belza-digital {
-    animation:
-      var(--slidein-duration)
-      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 1)
-      both
-      slidein;
-  }
-  & .consulting {
-    animation:
-      var(--slidein-duration)
-      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 2)
-      both
-      slidein;
-  }
-  & footer {
-    animation:
-      var(--slidein-duration)
-      calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 3)
-      both
-      slidein;
+/* Intro animation */
+
+.anim {
+  animation: var(--slidein-duration) both slidein;
+
+  &--0 {
+    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 0);
   }
 
-  /* do not play animation when #book-your-digital-consultant-now is part of URL */
-
-  &:target {
-    & .logo-darkbg,
-    & .belza-digital,
-    & .consulting,
-    & footer {
-      animation: none;
-    }
+  &--1 {
+    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 1);
   }
+
+  &--2 {
+    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 2);
+  }
+
+  &--3 {
+    animation-delay: calc(var(--slidein-initial-delay) + var(--slidein-delay-between) * 3);
+  }
+}
+
+/* Do not play intro animation when #book-your-digital-consultant-now is part of URL */
+
+#book-your-digital-consultant-now:target .anim {
+  animation: none;
 }
 
 @keyframes slidein {
