@@ -18,6 +18,9 @@
       </div>
     </main>
     <%- include('_footer.html.ejs', { className: 'anim anim--3' }) %>
+    <video playsinline autoplay muted loop class="bg-video" oncanplay="this.classList.add('loaded')">
+      <source src="cloudy.mp4" type="video/mp4">
+    </video>
     <%- include('_ga.html.ejs') %>
   </body>
 </html>
