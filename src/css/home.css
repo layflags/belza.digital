@@ -26,7 +26,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 body {
@@ -162,12 +161,13 @@ footer {
   }
 
   &--3 {
+    animation: var(--anim-duration) both fadein-animation;
     animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 3);
   }
 
   &--4 {
     animation: var(--anim-duration) 3 pulse-animation;
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 5);
+    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 4 + 3s);
   }
 }
 
@@ -186,6 +186,16 @@ footer {
   to {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+@keyframes fadein-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
