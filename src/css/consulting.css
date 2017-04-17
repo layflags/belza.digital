@@ -63,7 +63,9 @@ li {
 }
 
 header {
-  background: #f4f4f4 url(martin-belza.jpg) no-repeat center top;
+  background-color: #f4f4f4;
+  background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
   bottom: 0;
   left: 0;
@@ -71,6 +73,14 @@ header {
   right: 0;
   top: 0;
   z-index: -1;
+
+  &.martin {
+    background-image: url(martin-belza.jpg);
+  }
+
+  &.kinga {
+    background-image: url(kinga-belza.jpg);
+  }
 
   /* hide header content */
   & * {
