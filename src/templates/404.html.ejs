@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('_meta_defaults.html.ejs', {}) %>
+    <title>Page Not Found - Belza Digital</title>
+    <link rel="stylesheet" href="consulting.css" />
+    <%- include('_favicons.html.ejs', { themeColor: '#ffffff', manifestName: 'manifest-consulting' }) %>
+  </head>
+  <body>
+    <a href="/#book-your-digital-consultant-now" class="logo" title="home"><%- include('_ci/logo-lightbg.svg.ejs', {}) %></a>
+    <header class="not-found">
+      <h1>Belza Digital</h1>
+      <p><strong>Let's make your project a success.</strong></p>
+    </header>
+
+    <main role="main">
+      <article>
+        <h1 class="headline">404</h1>
+        <p class="sub-headline"><strong>Page Not Found</strong></p>
+
+        <h2>The link you clicked may be broken or the page may have been removed.</h2>
+        <p>Visit the <a href="/#book-your-digital-consultant-now">homepage</a> or <a href="mailto:hello@belza.digital">contact us</a> about the problem.</p>
+      </article>
+    </main>
+
+    <%- include('_footer.html.ejs', {}) %>
+    <%- include('_ga.html.ejs', {}) %>
+  </body>
+</html>

@@ -63,7 +63,9 @@ li {
 }
 
 header {
-  background: #f4f4f4 url(martin-belza.jpg) no-repeat center top;
+  background-color: #f4f4f4;
+  background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
   bottom: 0;
   left: 0;
@@ -71,6 +73,14 @@ header {
   right: 0;
   top: 0;
   z-index: -1;
+
+  &.martin {
+    background-image: url(martin-belza.jpg);
+  }
+
+  &.not-found {
+    background-image: url(404.jpg);
+  }
 
   /* hide header content */
   & * {
@@ -105,6 +115,7 @@ header {
   }
 }
 
+.headline,
 .name {
   color: #5c5c5c;
   font-size: 3.5em;
@@ -117,6 +128,7 @@ header {
   }
 }
 
+.sub-headline,
 .job-title {
   color: var(--primary-color);
   font-size: 1.7em;
