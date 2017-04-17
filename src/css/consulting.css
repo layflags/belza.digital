@@ -172,6 +172,7 @@ header {
   & > li {
     display: inline-block;
     margin: 0;
+    margin-right: .2em;
 
     &::after {
       content: ', ';
