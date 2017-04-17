@@ -1,16 +1,13 @@
 <%
   var maskIconColor = maskIconColor || '#64a2d1';
   var themeColor = themeColor || '#5082a7';
-  var version = version || '3'
-  var appName = appName || 'Belza Digital'
+  var version = version || '3';
+  var manifestName = manifestName || 'manifest-digital';
 %>
+<meta name="theme-color" content="<%= themeColor %>" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=<%= version %>" />
 <link rel="icon" type="image/png" href="/favicon-32x32.png?v=<%= version %>" sizes="32x32" />
 <link rel="icon" type="image/png" href="/favicon-16x16.png?v=<%= version %>" sizes="16x16" />
-<link rel="manifest" href="/manifest.json?v=<%= version %>" />
+<link rel="manifest" href="/<%= manifestName %>.json?v=<%= version %>" />
 <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<%= version %>" color="<%= maskIconColor %>" />
-<link rel="shortcut icon" href="/favicon.ico?v=<%= version %>" />
-<meta name="apple-mobile-web-app-title" content="<%= appName %>" />
-<meta name="application-name" content="<%= appName %>" />
-<meta name="theme-color" content="<%= themeColor %>" />

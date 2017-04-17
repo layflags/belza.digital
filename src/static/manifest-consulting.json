@@ -1,5 +1,5 @@
 {
-	"name": "Belza Digital",
+	"name": "Martin Belza",
 	"icons": [
 		{
 			"src": "\/android-chrome-192x192.png?v=xQoawOL6xw",
@@ -13,5 +13,6 @@
 		}
 	],
 	"theme_color": "#5082a7",
+	"background_color": "#5082a7",
 	"display": "standalone"
 }
