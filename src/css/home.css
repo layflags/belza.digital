@@ -91,6 +91,7 @@ main {
     display: inline-block;
     font-size: 120%;
     text-align: center;
+    margin: 0 .4em;
   }
 }
 

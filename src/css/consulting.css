@@ -82,6 +82,10 @@ header {
     background-image: url(404.jpg);
   }
 
+  &.kinga {
+    background-image: url(kinga-belza.jpg);
+  }
+
   /* hide header content */
   & * {
     display: none;
