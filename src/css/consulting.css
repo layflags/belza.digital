@@ -197,31 +197,10 @@ header {
 }
 
 .links > li {
-  padding-left: 1.6em;
-  position: relative;
-
-  & > small {
-    white-space: nowrap;
-  }
-
-  & > .fa-icon {
-    left: 0;
-    position: absolute;
-  }
-
-  @media (--small-viewport) {
-    border-bottom: 1px dotted #999;
-    padding-bottom: 1em;
-    padding-top: 1em;
-
-    &:last-child {
-      border: none;
-    }
-
-    & > .fa-icon {
-      top: 1.1em;
-    }
-  }
+  padding-right: 0.3em;
+  display: inline-block;
+  width: 2.5em;
+  height: 2.5em;
 }
 
 footer {
