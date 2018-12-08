@@ -2,6 +2,10 @@
 
 html {
   background-color: #fff;
+
+  &.dark-mode {
+    background-color: #222;
+  }
 }
 
 body {
@@ -12,6 +16,10 @@ body {
   margin: 0;
   max-width: 450px;
   padding: 10% 5% 10% 55%;
+
+  @nest .dark-mode & {
+    color: #eee;
+  }
 
   @media (--medium-viewport) {
     padding-left: 45%;
@@ -74,6 +82,10 @@ header {
   top: 0;
   z-index: -1;
 
+  @nest .dark-mode {
+    background-color: #222;
+  }
+
   &.martin {
     background-image: url(martin-belza.jpg);
   }
@@ -126,6 +138,10 @@ header {
   font-weight: normal;
   line-height: 1;
   margin: .7em 0 0 0;
+
+  @nest .dark-mode & {
+    color: #999;
+  }
 
   @media (--small-viewport) {
     font-size: 2em;
@@ -235,6 +251,10 @@ footer {
   position: fixed;
   width: 100%;
 
+  @nest .dark-mode & {
+    background: rgba(34,34,34,.9);
+  }
+
   & p {
     margin: .3em 1em .5em 1em;
   }
@@ -244,7 +264,7 @@ footer {
   }
 
   @media (--small-viewport) {
-    background: none;
+    background: none !important;
     border-top: 1px dotted;
     color: #999;
     margin-top: 2em;
