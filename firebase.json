@@ -4,6 +4,14 @@
     "cleanUrls": true,
     "trailingSlash": false,
 
+    "redirects": [
+      {
+        "source": "/consulting",
+        "destination": "/",
+        "type": 301
+      }
+    ],
+
     "headers": [
       {
         "source" : "**",
