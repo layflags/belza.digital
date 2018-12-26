@@ -6,6 +6,8 @@
     <link href="home.css" rel="stylesheet" />
     <link rel="prefetch" href="/martin<%= hrefExt %>" />
     <link rel="prefetch" href="/kinga<%= hrefExt %>" />
+    <link rel="prefetch" href="/martin-belza.jpg" />
+    <link rel="prefetch" href="/kinga-belza.jpg" />
     <%- include('_favicons.html.ejs', {}) %>
   </head>
   <body id="book-your-digital-consultant-now">
@@ -29,9 +31,14 @@
       </div>
     </main>
     <%- include('_footer.html.ejs', { className: 'anim anim--3' }) %>
-    <video playsinline autoplay muted loop class="bg-video" oncanplay="this.classList.add('loaded')">
-      <source src="cloudy.mp4" type="video/mp4">
+    <video playsinline autoplay muted loop class="bg-video" oncanplay="this.classList.add('loaded')" id="video">
     </video>
+    <script>
+      setTimeout(function() { // defer
+        if (window.innerWidth < 800) return; // do not load & show video on small devices - assuming mobile
+        document.getElementById('video').innerHTML = '<source type="video/mp4" src="cloudy.mp4">';
+      });
+    </script>
     <%- include('_ga.html.ejs') %>
   </body>
 </html>
