@@ -145,22 +145,22 @@ main {
 
 .nav-switch {
   display: none;
-}
 
-.nav-switch:checked {
-  & ~ .action-btn {
-    opacity: 0;
-    transform: scale(0.1);
+  &:checked {
+    & ~ .action-btn {
+      opacity: 0;
+      transform: scale(0.1);
 
-    &.anim {
-      animation: none;
+      &.anim {
+        animation: none;
+      }
     }
-  }
 
-  & ~ .martin,
-  & ~ .kinga {
-    opacity: 1;
-    transform: translateX(0);
+    & ~ .martin,
+    & ~ .kinga {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
