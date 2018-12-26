@@ -83,14 +83,6 @@ main {
     opacity: .99;
     text-decoration: none;
   }
-
-  &--round {
-    border-radius: 50%;
-    display: block;
-    width: 80px;
-    height: 80px;
-    padding: 0;
-  }
 }
 
 .action {
