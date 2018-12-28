@@ -148,7 +148,7 @@ main {
 
   &:checked {
     & ~ .action-btn {
-      opacity: 0;
+      opacity: 0 !important;
       transform: scale(0.1);
 
       &.anim {
