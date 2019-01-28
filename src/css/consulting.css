@@ -86,8 +86,8 @@ header {
     background-color: #222;
   }
 
-  &.martin {
-    background-image: url(martin-belza.jpg);
+  &.not-found {
+    background-image: url(404.jpg);
   }
 
   &.not-found {
@@ -96,6 +96,10 @@ header {
 
   &.kinga {
     background-image: url(kinga-belza.jpg);
+  }
+
+  &.martin {
+    background-image: url(martin-belza.jpg);
   }
 
   /* hide header content */
