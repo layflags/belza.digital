@@ -3,6 +3,7 @@
     "watch:templates": "NODE_ENV=development nodemon --ext ejs --watch src/templates bin/compile",
     "watch:css": "npm run -s build:css -- --watch",
     "predev": "npm run -s build",
+    "start": "npm run -s dev",
     "dev": "concurrently -k 'npm run -s watch:css' 'npm run -s watch:templates' 'browser-sync start --port 3333 --server build --files build'",
     "build:clean": "rm -rf build && mkdir build",
     "build:static": "cp -r src/static/* build/",
@@ -13,14 +14,13 @@
     "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
-    "browser-sync": "^2.17.5",
+    "browser-sync": "^2.26.3",
     "concurrently": "^2.1.0",
     "ejs": "^2.4.2",
     "inline-assets": "^1.2.1",
     "nodemon": "^1.9.2",
     "postcss-cli": "^2.6.0",
     "postcss-cssnext": "^2.8.0",
-    "postcss-import": "^8.1.2",
-    "surge": "^0.18.0"
+    "postcss-import": "^8.1.2"
   }
 }

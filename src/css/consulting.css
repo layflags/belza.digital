@@ -2,6 +2,10 @@
 
 html {
   background-color: #fff;
+
+  &.dark-mode {
+    background-color: #222;
+  }
 }
 
 body {
@@ -12,6 +16,10 @@ body {
   margin: 0;
   max-width: 450px;
   padding: 10% 5% 10% 55%;
+
+  @nest .dark-mode & {
+    color: #eee;
+  }
 
   @media (--medium-viewport) {
     padding-left: 45%;
@@ -74,12 +82,24 @@ header {
   top: 0;
   z-index: -1;
 
-  &.martin {
-    background-image: url(martin-belza.jpg);
+  @nest .dark-mode {
+    background-color: #222;
   }
 
   &.not-found {
     background-image: url(404.jpg);
+  }
+
+  &.not-found {
+    background-image: url(404.jpg);
+  }
+
+  &.kinga {
+    background-image: url(kinga-belza.jpg);
+  }
+
+  &.martin {
+    background-image: url(martin-belza.jpg);
   }
 
   /* hide header content */
@@ -123,6 +143,10 @@ header {
   line-height: 1;
   margin: .7em 0 0 0;
 
+  @nest .dark-mode & {
+    color: #999;
+  }
+
   @media (--small-viewport) {
     font-size: 2em;
   }
@@ -155,9 +179,17 @@ header {
   display: inline-block;
 }
 
-.reasons li::before {
-  content: '★';
-  margin-right: .5em;
+.stars li {
+  position: relative;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  padding-left: 1.5em;
+  &::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    margin-right: .5em;
+  }
 }
 
 .facts {
@@ -170,7 +202,7 @@ header {
 
   & > dd,
   & > dt {
-    padding: .2em 0;
+    padding: .4em 0;
   }
 
   & > dd {
@@ -197,10 +229,34 @@ header {
 }
 
 .links > li {
-  padding-right: 0.3em;
-  display: inline-block;
-  width: 2.5em;
-  height: 2.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 1.6em;
+  position: relative;
+
+  & > small {
+    white-space: nowrap;
+  }
+
+  & > .fa-icon {
+    left: 0;
+    position: absolute;
+  }
+
+  @media (--small-viewport) {
+    margin: 0;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 1em;
+    padding-top: 1em;
+
+    &:last-child {
+      border: none;
+    }
+
+    & > .fa-icon {
+      top: 1.1em;
+    }
+  }
 }
 
 footer {
@@ -209,6 +265,10 @@ footer {
   left: 0;
   position: fixed;
   width: 100%;
+
+  @nest .dark-mode & {
+    background: rgba(34,34,34,.9);
+  }
 
   & p {
     margin: .3em 1em .5em 1em;
@@ -219,7 +279,7 @@ footer {
   }
 
   @media (--small-viewport) {
-    background: none;
+    background: none !important;
     border-top: 1px dotted;
     color: #999;
     margin-top: 2em;

@@ -4,6 +4,10 @@
     <%- include('_meta_defaults.html.ejs', {}) %>
     <title>Belza Digital - Book your Digital Consultant now!</title>
     <link href="home.css" rel="stylesheet" />
+    <link rel="prefetch" href="/martin<%= hrefExt %>" />
+    <link rel="prefetch" href="/kinga<%= hrefExt %>" />
+    <link rel="prefetch" href="/martin-belza.jpg" />
+    <link rel="prefetch" href="/kinga-belza.jpg" />
     <%- include('_favicons.html.ejs', {}) %>
   </head>
   <body id="book-your-digital-consultant-now">
@@ -14,7 +18,16 @@
         <%- include('_ci/belza-digital.svg.ejs', { className: 'logo-copy anim anim--1' }) %>
       </div>
       <div class="action anim anim--2">
-        <a href="/consulting<%= hrefExt %>" class="btn action-btn anim anim--4">Book your Digital Consultant now!</a>
+        <input type="checkbox" class="nav-switch" id="navSwitch"/>
+        <a href="/kinga<%= hrefExt %>" class="image-link kinga">
+          <img src="kinga-belza-square.jpg" width="80" height="80" alt="Kinga Belza" />
+          <span>Kinga</span>
+        </a>
+        <a href="/martin<%= hrefExt %>" class="image-link martin">
+          <img src="martin-belza-square.jpg" width="80" height="80" alt="Martin Belza" />
+          <span>Martin</span>
+        </a>
+        <label for="navSwitch" class="btn action-btn anim anim--4">Book your Digital Consultant now</label>
       </div>
     </main>
     <%- include('_footer.html.ejs', { className: 'anim anim--3' }) %>

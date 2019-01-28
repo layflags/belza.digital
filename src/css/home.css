@@ -47,6 +47,7 @@ main {
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
+  overflow: hidden;
 }
 
 .logo {
@@ -54,7 +55,7 @@ main {
   display: flex;
   flex-direction: column;
   margin: 5vmin 0 0 0;
-  max-width: 640px;
+  max-width: 480px;
   overflow: hidden;
   width: 100%;
 
@@ -91,6 +92,75 @@ main {
     display: inline-block;
     font-size: 120%;
     text-align: center;
+    margin: 0 .4em;
+    transition: opacity 500ms, transform 500ms;
+  }
+}
+
+.image-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > img {
+    border-radius: 50%;
+    transition: border-color 500ms;
+    border: 5px solid #fff8;
+  }
+
+  & > span {
+    transition: color 500ms;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    & > span {
+      color: white;
+    }
+
+    & > img {
+      border-color: white;
+    }
+  }
+
+}
+
+.martin, .kinga {
+  position: absolute;
+  margin-top: -40px;
+  transition: opacity 500ms, transform 500ms;
+  opacity: 0;
+}
+.martin {
+  right: calc(50% - 80px - 20px);
+  transform: translateX(500%);
+}
+.kinga {
+  left: calc(50% - 80px - 20px);
+  transform: translateX(-500%);
+}
+
+.nav-switch {
+  display: none;
+
+  &:checked {
+    & ~ .action-btn {
+      opacity: 0 !important;
+      transform: scale(0.1);
+
+      &.anim {
+        animation: none;
+      }
+    }
+
+    & ~ .martin,
+    & ~ .kinga {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
@@ -173,8 +243,21 @@ footer {
 
 /* Do not play intro animation when #book-your-digital-consultant-now is part of URL */
 
-#book-your-digital-consultant-now:target .anim {
-  animation: none;
+#book-your-digital-consultant-now:target {
+  & .anim {
+    animation: none;
+  }
+
+  & .action-btn {
+    display: none;
+  }
+
+  & .martin,
+  & .kinga {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 @keyframes slidein-animation {
