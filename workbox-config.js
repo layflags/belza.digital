@@ -6,7 +6,8 @@ module.exports = {
   "globIgnores": [
     "**/_variables.css",
     "**/cloudy.mp4",
-    "**/safari-pinned-tab.svg"
+    "**/safari-pinned-tab.svg",
+    "**/404.*"
   ],
   "swDest": "build/sw.js"
 };
