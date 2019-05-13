@@ -20,5 +20,6 @@ module.exports = {
       warnings: [],
     })
   ],
-  "swDest": "build/sw.js"
+  "swDest": "build/sw.js",
+  "offlineGoogleAnalytics": true
 };
