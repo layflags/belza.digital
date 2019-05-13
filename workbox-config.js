@@ -9,6 +9,16 @@ module.exports = {
     "**/safari-pinned-tab.svg",
     "**/404.*"
   ],
-  "swSrc": "src/sw.js",
+  "manifestTransforms": [
+    originalManifest => ({
+      manifest: originalManifest.map(entry => ({
+        ...entry,
+        // NOTE: remove ".html" from urls to prevent issues with firebase
+        //       redirects by option "cleanUrls"
+        url: entry.url.replace('index.html', '/').replace(/\.html$/, ''),
+      })),
+      warnings: [],
+    })
+  ],
   "swDest": "build/sw.js"
 };

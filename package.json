@@ -9,7 +9,7 @@
     "build:static": "cp -r src/static/* build/",
     "build:css": "postcss --use postcss-import --use postcss-cssnext --dir build src/css/*.css",
     "build:compress": "for f in build/*.html; do inline-assets --htmlmin --cssmin --pattern 'css$' --verbose $f $f; done",
-    "build:sw": "workbox injectManifest workbox-config.js",
+    "build:sw": "workbox generateSW workbox-config.js",
     "build": "npm run -s build:clean && npm run -s build:static && npm run -s build:css && bin/compile",
     "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css && npm run -s build:sw",
     "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
