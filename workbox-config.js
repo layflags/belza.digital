@@ -9,5 +9,6 @@ module.exports = {
     "**/safari-pinned-tab.svg",
     "**/404.*"
   ],
+  "swSrc": "src/sw.js",
   "swDest": "build/sw.js"
 };
