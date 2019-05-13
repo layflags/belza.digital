@@ -9,18 +9,20 @@
     "build:static": "cp -r src/static/* build/",
     "build:css": "postcss --use postcss-import --use postcss-cssnext --dir build src/css/*.css",
     "build:compress": "for f in build/*.html; do inline-assets --htmlmin --cssmin --pattern 'css$' --verbose $f $f; done",
+    "build:sw": "workbox generateSW workbox-config.js",
     "build": "npm run -s build:clean && npm run -s build:static && npm run -s build:css && bin/compile",
-    "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css",
+    "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css && npm run -s build:sw",
     "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "concurrently": "^2.1.0",
-    "ejs": "^2.4.2",
-    "inline-assets": "^1.2.1",
-    "nodemon": "^1.9.2",
-    "postcss-cli": "^2.6.0",
-    "postcss-cssnext": "^2.8.0",
-    "postcss-import": "^8.1.2"
+    "browser-sync": "^2.26.5",
+    "concurrently": "^4.1.0",
+    "ejs": "^2.6.1",
+    "inline-assets": "^1.4.2",
+    "nodemon": "^1.19.0",
+    "postcss-cli": "^6.1.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "workbox-cli": "^4.3.1"
   }
 }

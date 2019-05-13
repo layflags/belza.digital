@@ -36,6 +36,7 @@ body {
 a {
   color: #fff8;
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
@@ -58,16 +59,16 @@ main {
   max-width: 480px;
   overflow: hidden;
   width: 100%;
+}
 
-  &-signet {
-    margin-bottom: 7.5vmin;
-    width: 30%;
-  }
+.logo-signet {
+  margin-bottom: 7.5vmin;
+  width: 30%;
+}
 
-  &-copy {
-    margin-bottom: 10vh;
-    width: 75%;
-  }
+.logo-copy {
+  margin-bottom: 10vh;
+  width: 75%;
 }
 
 .btn {
@@ -87,14 +88,14 @@ main {
 
 .action {
   margin: 0 5vmin 5vmin 5vmin;
+}
 
-  &-btn {
-    display: inline-block;
-    font-size: 120%;
-    text-align: center;
-    margin: 0 .4em;
-    transition: opacity 500ms, transform 500ms;
-  }
+.action-btn {
+  display: inline-block;
+  font-size: 120%;
+  text-align: center;
+  margin: 0 .4em;
+  transition: opacity 500ms, transform 500ms;
 }
 
 .image-link {
@@ -217,28 +218,28 @@ footer {
 
 .anim {
   animation: var(--anim-duration) both slidein-animation;
+}
 
-  &--0 {
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 0);
-  }
+.anim--0 {
+  animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 0);
+}
 
-  &--1 {
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 1);
-  }
+.anim--1 {
+  animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 1);
+}
 
-  &--2 {
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 2);
-  }
+.anim--2 {
+  animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 2);
+}
 
-  &--3 {
-    animation: var(--anim-duration) both fadein-animation;
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 3);
-  }
+.anim--3 {
+  animation: var(--anim-duration) both fadein-animation;
+  animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 3);
+}
 
-  &--4 {
-    animation: var(--anim-duration) 3 pulse-animation;
-    animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 4 + 3s);
-  }
+.anim--4 {
+  animation: var(--anim-duration) 3 pulse-animation;
+  animation-delay: calc(var(--anim-initial-delay) + var(--anim-delay-between) * 4 + 3s);
 }
 
 /* Do not play intro animation when #book-your-digital-consultant-now is part of URL */
