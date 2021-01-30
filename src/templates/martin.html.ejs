@@ -8,6 +8,8 @@
     <meta name="author" content="Martin Belza" />
     <link rel="stylesheet" href="consulting.css" />
     <%- include('_favicons.html.ejs', { themeColor: '#ffffff', manifestName: 'manifest-martin' }) %>
+    <link href="https://www.thanku.social/fonts/exo.css" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/@thanku/impact-widget"></script>
   </head>
   <body>
     <a href="/#book-your-digital-consultant-now" class="logo" title="back home"><%- include('_ci/logo-lightbg.svg.ejs', {}) %></a>
@@ -78,7 +80,11 @@
           <li><span class="fa-icon"><%- include('_fa/fa-xing-square.svg') %></span> <a href="https://www.xing.com/profile/Martin_Belza">Xing profile / CV</a> <small>(german)</small></li>
           <li><span class="fa-icon"><%- include('_fa/fa-external-link-square.svg') %></span> <a href="https://www.freelance.de/Freiberufler/84448/">Freelance.de profile</a> <small>(german)</small></li>
           <li><span class="fa-icon"><%- include('_fa/fa-github-square.svg') %></span> <a href="https://github.com/layflags">Github profile</a></li>
-          <li><span class="fa-icon"><%- include('_fa/fa-thanku-square.svg') %></span> <a href="https://thx.to/:martin">ThankU page</a></li>
+          <li>
+            <thanku-impact-widget slug="martin">
+              <span class="fa-icon"><%- include('_fa/fa-thanku-square.svg') %></span> <a href="https://thx.to/:martin">ThankU page</a>
+            </thanku-impact-widget>
+          </li>
         </ul>
       </article>
     </main>

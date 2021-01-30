@@ -8,6 +8,8 @@
     <meta name="author" content="Kinga Belza" />
     <link rel="stylesheet" href="consulting.css" />
     <%- include('_favicons.html.ejs', { themeColor: '#222222', manifestName: 'manifest-kinga' }) %>
+    <link href="https://www.thanku.social/fonts/exo.css" rel="stylesheet" />
+    <script type="module" src="https://unpkg.com/@thanku/impact-widget"></script>
   </head>
   <body>
     <a href="/#book-your-digital-consultant-now" class="logo" title="back home"><%- include('_ci/logo-darkbg.svg.ejs', {}) %></a>
@@ -72,7 +74,16 @@
         <h2>Profile links</h2>
         <ul class="links">
           <li><span class="fa-icon"><%- include('_fa/fa-xing-square.svg') %></span> <a href="https://www.xing.com/profile/Kinga_Belza">Xing profile / CV</a> <small>(german)</small></li>
-          <li><span class="fa-icon"><%- include('_fa/fa-thanku-square.svg') %></span> <a href="https://thx.to/:kinga">ThankU page</a></li>
+          <li>
+            <thanku-impact-widget slug="kinga" style="
+              --bg-color: #202c55;
+              --bg-image: none;
+              --color-text-base: white;
+              --color-text-headline: #78c0c4;
+              --color-text-emphasis: #eea746">
+              <span class="fa-icon"><%- include('_fa/fa-thanku-square.svg') %></span> <a href="https://thx.to/:kinga">ThankU page</a>
+            </thanku-impact-widget>
+          </li>
         </ul>
       </article>
     </main>
