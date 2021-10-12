@@ -15,7 +15,7 @@
     "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.27.5",
     "concurrently": "^4.1.1",
     "ejs": "^2.6.2",
     "inline-assets": "^1.4.7",
