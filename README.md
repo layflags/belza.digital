@@ -4,4 +4,4 @@
 My corporate website
 
 --
-© Belza Digital GmbH | hosted by [Firebase](https://firebase.google.com) | deployed by [Travis CI](https://travis-ci.org/layflags/belza.digital) :metal:
+© Belza Digital GmbH | hosted by [Firebase](https://firebase.google.com) | deployed by GitHub actions :metal:
