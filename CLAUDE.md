@@ -54,7 +54,7 @@ npm run deploy
 ```
 Deploys to Firebase (requires `FIREBASE_TOKEN` environment variable)
 
-Note: Travis CI automatically runs `predeploy` and deploys on successful builds to master branch
+Note: `predeploy` runs automatically before `deploy` via npm's pre-script hook. GitHub Actions automatically deploys to Firebase on every push to the master branch (see `.github/workflows/deploy.yml`)
 
 ## CSS Architecture
 
