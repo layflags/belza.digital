@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "watch:templates": "NODE_ENV=development nodemon --ext ejs --watch src/templates bin/compile",
     "watch:css": "npm run -s build:css -- --watch",
