@@ -62,12 +62,14 @@ npx serve public      # oder: (cd public && python3 -m http.server 8000)
 
 ## Deployen
 
-Automatisch via GitHub Actions bei Push auf `master` (Secret `FIREBASE_TOKEN`).
+Automatisch via GitHub Actions bei Push auf `master`
+(`FirebaseExtended/action-hosting-deploy`, SHA-gepinnt; Secret
+`FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL` = JSON-Key eines Service Accounts mit
+Hosting-Deploy-Rechten).
 
-Manuell:
+Manuell (lokal, erfordert `firebase login` oder `GOOGLE_APPLICATION_CREDENTIALS`):
 ```bash
 npm install
-export FIREBASE_TOKEN=dein-token
 npm run deploy
 ```
 

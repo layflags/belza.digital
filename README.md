@@ -22,12 +22,12 @@ Projektkontext & Konventionen: siehe [`CLAUDE.md`](CLAUDE.md).
 
 ## Deployment
 
-Automatisch via GitHub Actions bei Push auf `master` (Repo-Secret `FIREBASE_TOKEN`).
-Manuell:
+Automatisch via GitHub Actions bei Push auf `master`
+(`FirebaseExtended/action-hosting-deploy`, Repo-Secret `FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL`).
+Manuell (lokal, erfordert `firebase login` oder `GOOGLE_APPLICATION_CREDENTIALS`):
 
 ```bash
 npm install
-export FIREBASE_TOKEN=dein-token
 npm run deploy
 ```
 

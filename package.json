@@ -4,7 +4,7 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "deploy": "firebase deploy --only hosting --token \"$FIREBASE_TOKEN\""
+    "deploy": "firebase deploy --only hosting --project belza-digital"
   },
   "devDependencies": {
     "firebase-tools": "^14.19.1"
