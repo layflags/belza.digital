@@ -62,10 +62,11 @@ npx serve public      # oder: (cd public && python3 -m http.server 8000)
 
 ## Deployen
 
-Automatisch via GitHub Actions bei Push auf `master`
-(`FirebaseExtended/action-hosting-deploy`, SHA-gepinnt; Secret
-`FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL` = JSON-Key eines Service Accounts mit
-Hosting-Deploy-Rechten).
+Automatisch via GitHub Actions bei Push auf `master`: `npm ci` + `npm run deploy`
+(`firebase deploy --only hosting`) auf Node 24. Auth über Application Default
+Credentials — der Workflow schreibt das Secret `FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL`
+(JSON-Key eines Service Accounts mit Hosting-Deploy-Rechten) in eine Temp-Datei und
+setzt `GOOGLE_APPLICATION_CREDENTIALS` darauf. Keine Drittanbieter-Deploy-Action.
 
 Manuell (lokal, erfordert `firebase login` oder `GOOGLE_APPLICATION_CREDENTIALS`):
 ```bash

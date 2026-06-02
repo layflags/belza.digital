@@ -22,8 +22,8 @@ Projektkontext & Konventionen: siehe [`CLAUDE.md`](CLAUDE.md).
 
 ## Deployment
 
-Automatisch via GitHub Actions bei Push auf `master`
-(`FirebaseExtended/action-hosting-deploy`, Repo-Secret `FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL`).
+Automatisch via GitHub Actions bei Push auf `master` (`firebase deploy --only hosting`,
+Auth via Service-Account-ADC; Repo-Secret `FIREBASE_SERVICE_ACCOUNT_BELZA_DIGITAL`).
 Manuell (lokal, erfordert `firebase login` oder `GOOGLE_APPLICATION_CREDENTIALS`):
 
 ```bash
