@@ -216,7 +216,7 @@ footer{border-top:1px solid var(--line);padding:40px 0}
 .hero-inner{will-change:transform,opacity}
 .px-num{display:inline-block;will-change:transform}
 .stagger-item{will-change:transform,opacity}
-.reveal .stagger-item{opacity:0;transform:translateY(15px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*65ms)}
+.reveal .stagger-item{opacity:0;transform:translateY(15px);transition:opacity .6s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*65ms),transform .6s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*65ms),padding-left .25s cubic-bezier(.2,.7,.2,1),background-color .25s ease}
 .reveal.in .stagger-item{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.hero-inner,.px-num,.stagger-item{transform:none!important;opacity:1!important}}
 </style>
