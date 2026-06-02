@@ -1,32 +1,12 @@
 {
+  "private": true,
   "engines": {
     "node": ">=22.0.0"
   },
   "scripts": {
-    "watch:templates": "NODE_ENV=development nodemon --ext ejs --watch src/templates bin/compile",
-    "watch:css": "npm run -s build:css -- --watch",
-    "predev": "npm run -s build",
-    "start": "npm run -s dev",
-    "dev": "concurrently -k 'npm run -s watch:css' 'npm run -s watch:templates' 'browser-sync start --port 3333 --server build --files build'",
-    "build:clean": "rm -rf build && mkdir build",
-    "build:static": "cp -r src/static/* build/",
-    "build:css": "postcss --use postcss-import --use postcss-cssnext --dir build src/css/*.css",
-    "build:compress": "for f in build/*.html; do inline-assets --htmlmin --cssmin --pattern 'css$' --verbose $f $f; done",
-    "build:sw": "workbox generateSW workbox-config.js",
-    "build": "npm run -s build:clean && npm run -s build:static && npm run -s build:css && bin/compile",
-    "predeploy": "npm run -s build && npm run -s build:compress && rm -f build/*.css && npm run -s build:sw",
-    "deploy": "firebase deploy --token \"$FIREBASE_TOKEN\""
+    "deploy": "firebase deploy --only hosting --token \"$FIREBASE_TOKEN\""
   },
   "devDependencies": {
-    "browser-sync": "^2.27.5",
-    "concurrently": "^4.1.1",
-    "ejs": "^2.6.2",
-    "firebase-tools": "^14.19.1",
-    "inline-assets": "^1.4.7",
-    "nodemon": "^1.19.1",
-    "postcss-cli": "^6.1.2",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^12.0.1",
-    "workbox-cli": "^4.3.1"
+    "firebase-tools": "^14.19.1"
   }
 }

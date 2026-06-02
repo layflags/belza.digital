@@ -1,92 +1,79 @@
-# CLAUDE.md
+# CLAUDE.md — belza.digital
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance für Claude Code (claude.ai/code) in diesem Repository.
 
-## Project Overview
+## Projektüberblick
 
-This is a corporate website for Belza Digital GmbH, a static site built with EJS templates, PostCSS, and deployed to Firebase Hosting. The site uses a custom build pipeline with Browser-Sync for local development.
+Corporate-/Portfolio-Website von **Martin Belza** (Belza Digital GmbH, München) —
+Frontend Architect & Engineering Lead. Zweisprachiger (EN/DE) One-Pager + Impressum.
 
-## Build System Architecture
+**Live:** https://belza.digital/ · **Hosting:** Firebase Hosting (`belza-digital`)
 
-The build system uses a custom Node.js script (`bin/compile`) that compiles EJS templates from `src/templates/` to HTML files in `build/`:
+> Stand: Relaunch 2026. Die frühere EJS/PostCSS-Build-Pipeline und Kingas Seite
+> wurden entfernt — siehe `MIGRATION.md` für die Historie.
 
-- Templates starting with `_` are partials (not compiled directly)
-- The compile script sets `hrefExt` based on `NODE_ENV`:
-  - Development: `.html` (for local browsing)
-  - Production: empty string (Firebase's `cleanUrls` option handles routing)
+## Tech-Stack (bewusst minimalistisch)
 
-Build process:
-1. `build:clean` - Removes and recreates `build/` directory
-2. `build:static` - Copies all files from `src/static/` to `build/`
-3. `build:css` - Processes CSS with postcss-import and postcss-cssnext
-4. `bin/compile` - Compiles EJS templates to HTML
+- **Reines statisches HTML, CSS und Vanilla-JavaScript.**
+- **Kein Framework, kein Build-Schritt, keine Runtime-Dependencies.**
+- **Keine externen Requests zur Laufzeit:** Schriften lokal eingebettet
+  (`public/assets/fonts.css`), kein Tracking/Analytics, keine Cookies.
+  Nur `localStorage` für Sprache & Theme.
+- Firebase serviert direkt den Ordner `public/` (kein Kompilieren).
 
-## Development Commands
+## Struktur
 
-### Local Development
-```bash
-npm run dev
-# or
-npm start
 ```
-Runs three concurrent processes:
-- CSS watcher (rebuilds CSS on changes)
-- Template watcher (recompiles EJS files on changes)
-- Browser-Sync server on port 3333
-
-### Building
-```bash
-npm run build
+public/                 ← wird von Firebase deployed (firebase.json: "public": "public")
+  index.html            Startseite (One-Pager): Markup + <style> + Inline-Script
+  impressum.html        Impressum / Datenschutz
+  assets/
+    content.js          EINZIGE Textquelle — window.BELZA.en / .de
+    bg-field.js         Interaktiver Canvas-Hintergrund (Mesh-Kraftfeld)
+    fonts.css           Lokal eingebettete Schriften (Base64 woff2, latin)
+    og-image.png        Social-Preview (1200×630)
+  favicon.*, *-manifest-*.png, site.webmanifest, robots.txt, sitemap.xml
+firebase.json           Hosting-Config (cleanUrls, Redirects, Caching, Security-Header)
+package.json            Nur firebase-tools + deploy-Script
+.firebaserc             Firebase-Projekt: belza-digital
+.github/workflows/deploy.yml   Auto-Deploy bei Push auf master
 ```
-Full build without compression (for development testing)
 
-### Deployment
+## Konventionen
+
+- **Texte ändern → IMMER in `public/assets/content.js`** (`window.BELZA.en` / `.de`).
+  Das HTML rendert per `data-k="pfad"`-Attributen aus diesem Objekt. EN + DE parallel
+  pflegen. `TECH` und die Side-Projects sind sprachübergreifend geteilt.
+- **Basissprache Englisch** (`<html lang="en">`, Default im Script); DE umschaltbar.
+- **Interne Links extensionslos** (`/`, `/impressum`) — passend zu `cleanUrls: true`.
+- **Theme:** Auto (System) / Light / Dark, in `localStorage` (`belza-theme`).
+  Farben als CSS-Custom-Properties unter `:root` / `html[data-theme="light"]`.
+  Akzent = `--acc`; das Logo nutzt ihn via `currentColor`.
+- **Schriften:** Schibsted Grotesk (Display) + JetBrains Mono (Mono/Labels).
+  Eingebettete Schnitte: Schibsted 400/500/600, Mono 400/500 — keine weiteren
+  verwenden, ohne `fonts.css` neu zu erzeugen.
+- **Bewegung** respektiert `prefers-reduced-motion`; Reveal hat ein Failsafe.
+
+## Lokal ansehen
+
 ```bash
-npm run predeploy
+npx serve public      # oder: (cd public && python3 -m http.server 8000)
 ```
-Production build with:
-- HTML/CSS minification via inline-assets
-- Service worker generation via Workbox
-- CSS file removal (styles are inlined)
 
+## Deployen
+
+Automatisch via GitHub Actions bei Push auf `master` (Secret `FIREBASE_TOKEN`).
+
+Manuell:
 ```bash
+npm install
+export FIREBASE_TOKEN=dein-token
 npm run deploy
 ```
-Deploys to Firebase (requires `FIREBASE_TOKEN` environment variable)
 
-Note: `predeploy` runs automatically before `deploy` via npm's pre-script hook. GitHub Actions automatically deploys to Firebase on every push to the master branch (see `.github/workflows/deploy.yml`)
+## Hinweise / To-dos
 
-## CSS Architecture
-
-CSS files in `src/css/`:
-- `_variables.css` - Shared CSS variables (not built directly, imported by others)
-- `home.css` - Homepage styles
-- `page.css` - General page styles
-- `consulting.css` - Consulting page styles
-
-PostCSS processes:
-- `postcss-import` - Resolves @import statements
-- `postcss-cssnext` - Transforms modern CSS to browser-compatible CSS
-
-## Firebase Configuration
-
-The site is hosted on Firebase with:
-- `cleanUrls: true` - Removes `.html` extensions from URLs
-- Custom headers for caching, security (HSTS), and CORS
-- Service worker (`sw.js`) with no-cache policy
-- Redirect: `/consulting` → `/` (301)
-
-The Workbox service worker config (`workbox-config.js`) transforms manifest URLs to remove `.html` extensions, matching Firebase's cleanUrls behavior.
-
-## Template Structure
-
-EJS templates use:
-- `hrefExt` variable for internal links (empty in production, `.html` in dev)
-- Partial includes for reusable components (`_meta_defaults`, `_favicons`, `_footer`, `_ga`)
-- SVG includes from `_ci/` subdirectory for logo components
-
-Main page templates:
-- `index.html.ejs` - Homepage with video background
-- `kinga.html.ejs`, `martin.html.ejs` - Consultant profiles
-- `impressum.html.ejs` - Legal/imprint page
-- `404.html.ejs` - Not found page
+- Impressum-Rechtstexte vor Go-Live juristisch prüfen lassen.
+- `public/assets/og-image.png` wird per Canvas-Skript erzeugt (nicht von Hand editieren).
+- Optionaler Follow-up: Workbox-Service-Worker (Offline) wieder ergänzen — wurde beim
+  Relaunch zugunsten von Einfachheit entfernt.
