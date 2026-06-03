@@ -45,7 +45,21 @@ nav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blu
 .brand-tx{display:flex;flex-direction:column;align-items:flex-start;gap:1px;line-height:1.15;font-weight:600;font-size:17px;letter-spacing:-.3px}
 .brand .signet{height:30px;width:20px;color:var(--acc);flex:0 0 auto;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .brand:hover .signet{transform:rotate(-6deg) scale(1.06)}
-.brand .d{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.brand .d{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;font-weight:400;white-space:nowrap}
+@media(max-width:600px){
+  .nav-in{padding:14px 18px;gap:14px}
+  .brand{gap:9px}
+  .brand-tx{font-size:15px}
+  .brand .signet{height:28px;width:18.7px}
+  .brand .d{font-size:10px;letter-spacing:.8px}
+  .nav-r{gap:14px}
+  .themetog{padding:0 9px;gap:5px;font-size:10px}
+}
+@media(max-width:360px){
+  .nav-in{gap:11px}
+  .themetog .lbl{display:none}
+  .themetog{padding:0;width:30px;justify-content:center}
+}
 .nav-r{margin-left:auto;display:flex;align-items:center;gap:18px}
 .back{font-size:14px;color:var(--mut);display:inline-flex;align-items:center;gap:7px;transition:color .15s;white-space:nowrap}
 .back:hover{color:var(--ink)}
@@ -57,6 +71,7 @@ nav{position:sticky;top:0;z-index:50;background:var(--navbg);backdrop-filter:blu
 .themetog:hover{color:var(--ink);border-color:var(--ink)}
 .themetog svg{display:block;transition:transform .4s ease}
 .themetog:hover svg{transform:rotate(35deg)}
+.themetog .lbl{line-height:1}
 
 /* head */
 .phead{padding:84px 0 40px;border-bottom:1px solid var(--line)}
