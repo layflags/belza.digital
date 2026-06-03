@@ -214,11 +214,12 @@ footer{border-top:1px solid var(--line);padding:40px 0}
 
 /* parallax + staggered reveal */
 .hero-inner{will-change:transform,opacity}
-.px-num{display:inline-block;will-change:transform}
+.px-num{display:inline-block}
+[data-px]{will-change:transform}
 .stagger-item{will-change:transform,opacity}
 .reveal .stagger-item{opacity:0;transform:translateY(15px);transition:opacity .6s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*65ms),transform .6s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*65ms),padding-left .25s cubic-bezier(.2,.7,.2,1),background-color .25s ease}
 .reveal.in .stagger-item{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){.hero-inner,.px-num,.stagger-item{transform:none!important;opacity:1!important}}
+@media (prefers-reduced-motion: reduce){.hero-inner,.px-num,[data-px],.stagger-item{transform:none!important;opacity:1!important}}
 </style>
 </head>
 <body>
@@ -249,17 +250,17 @@ footer{border-top:1px solid var(--line);padding:40px 0}
     <div class="stats" id="stats-mount"></div>
 
     <section class="sec" id="services">
-      <div class="sec-h"><span class="num px-num">01</span><div class="ttl"><h2 data-k="servicesHead"></h2><span class="note" data-k="servicesSub"></span></div></div>
+      <div class="sec-h"><span class="num px-num" data-px="70">01</span><div class="ttl" data-px="-28"><h2 data-k="servicesHead"></h2><span class="note" data-k="servicesSub"></span></div></div>
       <div class="svc-list" id="svc-mount"></div>
     </section>
 
     <section class="sec" id="work">
-      <div class="sec-h"><span class="num px-num">02</span><div class="ttl"><h2 data-k="workHead"></h2><span class="note" data-k="workSub"></span></div></div>
+      <div class="sec-h"><span class="num px-num" data-px="70">02</span><div class="ttl" data-px="-28"><h2 data-k="workHead"></h2><span class="note" data-k="workSub"></span></div></div>
       <div class="proj-list" id="proj-mount"></div>
     </section>
 
     <section class="sec" id="about">
-      <div class="sec-h"><span class="num px-num">03</span><div class="ttl"><h2 data-k="aboutHead"></h2></div></div>
+      <div class="sec-h"><span class="num px-num" data-px="70">03</span><div class="ttl" data-px="-28"><h2 data-k="aboutHead"></h2></div></div>
       <div class="split">
         <div>
           <div id="about-mount"></div>
@@ -277,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:40px 0}
     <section class="sec"><div class="quote" id="quote-mount"></div></section>
 
     <section class="sec" id="side">
-      <div class="sec-h"><span class="num px-num">04</span><div class="ttl"><h2 data-k="sideHead"></h2><span class="note" data-k="sideSub"></span></div></div>
+      <div class="sec-h"><span class="num px-num" data-px="70">04</span><div class="ttl" data-px="-28"><h2 data-k="sideHead"></h2><span class="note" data-k="sideSub"></span></div></div>
       <div class="side-list" id="side-mount"></div>
     </section>
   </div>
@@ -386,8 +387,8 @@ footer{border-top:1px solid var(--line);padding:40px 0}
     setTimeout(function(){els.forEach(show);},1600);
   }
 
-  // dezenter Parallax: Hero hebt sich & blendet aus, Sektions-Nummern driften gegenläufig
-  var pxHero=null, pxNums=[], pxBound=false, pxTick=false;
+  // Parallax: Hero hebt sich & blendet aus; data-px-Elemente driften proportional zur Viewport-Mitte
+  var pxHero=null, pxEls=[], pxBound=false, pxTick=false;
   var pxReduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function pxUpdate(){
     pxTick=false;
@@ -399,16 +400,17 @@ footer{border-top:1px solid var(--line);padding:40px 0}
       pxHero.style.transform='translate3d(0,'+(sy*0.14).toFixed(1)+'px,0)';
       pxHero.style.opacity=(1-p*0.92).toFixed(3);
     }
-    for(var i=0;i<pxNums.length;i++){
-      var el=pxNums[i], r=el.getBoundingClientRect();
+    for(var i=0;i<pxEls.length;i++){
+      var el=pxEls[i], r=el.getBoundingClientRect();
       var off=(r.top+r.height/2-vh/2)/vh;
-      el.style.transform='translate3d(0,'+(off*-42).toFixed(1)+'px,0)';
+      var factor=parseFloat(el.dataset.px)||0;
+      el.style.transform='translate3d(0,'+(off*factor*-0.6).toFixed(1)+'px,0)';
     }
   }
   function pxOnScroll(){ if(!pxTick){ pxTick=true; requestAnimationFrame(pxUpdate); } }
   function setupParallax(){
     pxHero=document.querySelector('.hero-inner');
-    pxNums=[].slice.call(document.querySelectorAll('.px-num'));
+    pxEls=[].slice.call(document.querySelectorAll('[data-px]'));
     if(!pxBound && !pxReduce){
       pxBound=true;
       window.addEventListener('scroll',pxOnScroll,{passive:true});
