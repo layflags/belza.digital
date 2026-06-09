@@ -156,4 +156,99 @@ export const de: Dict = {
   footerNote: 'Frontend-Architekt & Engineering Lead',
   langName: 'DE',
   theme: { auto: 'Auto', light: 'Hell', dark: 'Dunkel' },
+  imprint: {
+    title: 'Impressum — Belza Digital GmbH',
+    back: 'Zurück',
+    city: 'München',
+    footerHome: 'Start',
+    kicker: 'Belza Digital GmbH',
+    h1: 'Impressum',
+    intro:
+      'Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz) sowie rechtliche Hinweise und Datenschutz.',
+    providerHead: 'Anbieter',
+    rows: [
+      { k: 'Unternehmen', v: 'Belza Digital GmbH', big: true },
+      { k: 'Anschrift', lines: ['Amalienstraße 71, RGB2', '80799 München, Deutschland'] },
+      { k: 'Geschäftsführer', v: 'Martin Belza (vertretungsberechtigt)' },
+      { k: 'Telefon', v: '+49 (0)89 92927721' },
+      { k: 'Telefax', v: '+49 (0)3222 3944878' },
+      { k: 'E-Mail', email: 'hello@belza.digital' },
+      { k: 'Registergericht', v: 'Amtsgericht München' },
+      { k: 'Registernummer', v: 'HRB 222344' },
+      { k: 'USt-IdNr. (§ 27a UStG)', v: 'DE303717499' },
+      { k: 'Steuernummer', v: '143/119/61455' },
+      { k: 'Inhaltlich verantwortlich', v: 'Martin Belza (§ 18 Abs. 2 MStV, Anschrift wie oben)' },
+    ],
+    sections: [
+      {
+        h2: 'Rechtliche Hinweise',
+        subsections: [
+          {
+            h3: '§ 1 Haftung für Inhalte',
+            paras: [
+              'Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Die Nutzung der Inhalte erfolgt auf eigene Gefahr. Mit der reinen Nutzung der Website kommt kein Vertragsverhältnis zwischen Nutzer und Anbieter zustande.',
+            ],
+          },
+          {
+            h3: '§ 2 Externe Links',
+            paras: [
+              'Diese Website enthält Verknüpfungen zu Websites Dritter („externe Links"). Diese Websites unterliegen der Haftung der jeweiligen Betreiber. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Auf die aktuelle und zukünftige Gestaltung der verlinkten Seiten hat der Anbieter keinen Einfluss. Bei Bekanntwerden von Rechtsverstößen werden derartige Links unverzüglich entfernt.',
+            ],
+          },
+          {
+            h3: '§ 3 Urheber- und Leistungsschutzrechte',
+            paras: [
+              'Die auf dieser Website veröffentlichten Inhalte unterliegen dem deutschen Urheber- und Leistungsschutzrecht. Jede nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Anbieters bzw. Rechteinhabers. Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung und Wiedergabe in elektronischen Systemen. Kopien und Downloads für den persönlichen, privaten und nicht-kommerziellen Gebrauch sind gestattet.',
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Datenschutz',
+        subsections: [
+          {
+            h3: 'Überblick',
+            paras: [
+              'Diese Website ist eine statische Seite und verzichtet bewusst auf Tracking, Analyse-Tools und Werbe-Cookies. Es findet keine Profilbildung statt. Verantwortlicher im Sinne der DSGVO ist die im Impressum genannte Belza Digital GmbH.',
+            ],
+          },
+          {
+            h3: 'Lokale Einstellungen (localStorage)',
+            paras: [
+              'Zur Speicherung deiner Sprach- und Theme-Auswahl (Hell/Dunkel) verwendet die Seite den lokalen Speicher deines Browsers (localStorage). Diese Angaben verbleiben ausschließlich auf deinem Gerät, werden nicht an uns oder Dritte übertragen und dienen allein deinem Bedienkomfort. Du kannst sie jederzeit über deine Browser-Einstellungen löschen.',
+            ],
+          },
+          {
+            h3: 'Schriften',
+            paras: [
+              'Schriftarten werden lokal vom Server dieser Website ausgeliefert. Es besteht keine Verbindung zu externen Anbietern wie Google Fonts; entsprechend werden hierfür keine Daten an Dritte übertragen.',
+            ],
+          },
+          {
+            h3: 'Server-Logfiles & Hosting',
+            paras: [
+              {
+                pre: 'Diese Website wird bei Google Firebase Hosting gehostet (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Beim Aufruf der Website verarbeitet der Hosting-Provider technisch notwendige Zugriffsdaten (z. B. IP-Adresse, Datum/Uhrzeit, abgerufene Datei, Browsertyp) zur Auslieferung der Seite sowie zur Gewährleistung von Stabilität und Sicherheit. Rechtsgrundlage ist das berechtigte Interesse an einem sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA kann nicht ausgeschlossen werden; sie stützt sich auf die Standardvertragsklauseln der EU-Kommission. Details unter ',
+                linkHref: 'https://firebase.google.com/support/privacy',
+                linkLabel: 'firebase.google.com/support/privacy',
+                post: '.',
+              },
+            ],
+          },
+          {
+            h3: 'Kontaktaufnahme',
+            paras: [
+              'Wenn du uns per E-Mail kontaktierst, werden deine Angaben ausschließlich zur Bearbeitung der Anfrage verarbeitet und nicht ohne deine Einwilligung an Dritte weitergegeben (Art. 6 Abs. 1 lit. b und f DSGVO).',
+            ],
+          },
+          {
+            h3: 'Deine Rechte',
+            paras: [
+              'Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Wende dich dazu an die im Impressum genannten Kontaktdaten. Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.',
+            ],
+          },
+        ],
+      },
+    ],
+  },
 };

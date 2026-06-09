@@ -83,6 +83,49 @@ export interface ThemeLabels {
   dark: string;
 }
 
+/** A row in the provider data table. Values are mostly language-neutral; only
+    labels and a few values differ per language. */
+export interface ImprintRow {
+  k: string;
+  v?: string;
+  lines?: string[];
+  email?: string;
+  big?: boolean;
+}
+
+/** A paragraph that contains a single inline link. */
+export interface ImprintLinkedPara {
+  pre: string;
+  linkHref: string;
+  linkLabel: string;
+  post: string;
+}
+
+export interface ImprintSubsection {
+  h3: string;
+  paras: (string | ImprintLinkedPara)[];
+}
+
+export interface ImprintSection {
+  h2: string;
+  subsections: ImprintSubsection[];
+}
+
+export interface Imprint {
+  title: string;
+  back: string;
+  city: string;
+  footerHome: string;
+  kicker: string;
+  h1: string;
+  intro: string;
+  /** Optional courtesy-translation notice (shown on the English page). */
+  authoritativeNote?: string;
+  providerHead: string;
+  rows: ImprintRow[];
+  sections: ImprintSection[];
+}
+
 export interface Dict {
   meta: Meta;
   nav: Nav;
@@ -110,4 +153,5 @@ export interface Dict {
   footerNote: string;
   langName: string;
   theme: ThemeLabels;
+  imprint: Imprint;
 }

@@ -152,4 +152,101 @@ export const en: Dict = {
   footerNote: 'Frontend Architect & Engineering Lead',
   langName: 'EN',
   theme: { auto: 'Auto', light: 'Light', dark: 'Dark' },
+  imprint: {
+    title: 'Imprint — Belza Digital GmbH',
+    back: 'Back',
+    city: 'Munich',
+    footerHome: 'Home',
+    kicker: 'Belza Digital GmbH',
+    h1: 'Imprint',
+    intro:
+      'Information pursuant to § 5 DDG (German Digital Services Act), together with legal notices and privacy information.',
+    authoritativeNote:
+      'This English imprint is a courtesy translation. The German version at /de/impressum is legally authoritative.',
+    providerHead: 'Provider',
+    rows: [
+      { k: 'Company', v: 'Belza Digital GmbH', big: true },
+      { k: 'Address', lines: ['Amalienstraße 71, RGB2', '80799 Munich, Germany'] },
+      { k: 'Managing Director', v: 'Martin Belza (authorized to represent)' },
+      { k: 'Phone', v: '+49 (0)89 92927721' },
+      { k: 'Fax', v: '+49 (0)3222 3944878' },
+      { k: 'E-mail', email: 'hello@belza.digital' },
+      { k: 'Register Court', v: 'Munich Local Court (Amtsgericht München)' },
+      { k: 'Registration Number', v: 'HRB 222344' },
+      { k: 'VAT ID (§ 27a UStG)', v: 'DE303717499' },
+      { k: 'Tax Number', v: '143/119/61455' },
+      { k: 'Responsible for content', v: 'Martin Belza (§ 18 (2) MStV, address as above)' },
+    ],
+    sections: [
+      {
+        h2: 'Legal Notices',
+        subsections: [
+          {
+            h3: '§ 1 Liability for content',
+            paras: [
+              'The content of this website is created with the greatest possible care. However, no guarantee is given for the accuracy, completeness and timeliness of the content. Use of the content is at your own risk. Mere use of the website does not establish any contractual relationship between the user and the provider.',
+            ],
+          },
+          {
+            h3: '§ 2 External links',
+            paras: [
+              'This website contains links to third-party websites ("external links"). These websites are the responsibility of their respective operators. At the time the links were created, no legal violations were apparent. The provider has no influence on the current or future design of the linked pages. Should any legal violations become known, such links will be removed without delay.',
+            ],
+          },
+          {
+            h3: '§ 3 Copyright and ancillary copyright',
+            paras: [
+              'The content published on this website is subject to German copyright and ancillary copyright law. Any use not permitted by law requires the prior written consent of the provider or rights holder. This applies in particular to reproduction, editing, translation, storage, processing and reproduction in electronic systems. Copies and downloads for personal, private and non-commercial use are permitted.',
+            ],
+          },
+        ],
+      },
+      {
+        h2: 'Privacy',
+        subsections: [
+          {
+            h3: 'Overview',
+            paras: [
+              'This website is a static site and deliberately does without tracking, analytics tools and advertising cookies. No profiling takes place. The controller within the meaning of the GDPR is Belza Digital GmbH, as named in the imprint.',
+            ],
+          },
+          {
+            h3: 'Local settings (localStorage)',
+            paras: [
+              'To store your language and theme choice (light/dark), the site uses your browser’s local storage (localStorage). This information remains exclusively on your device, is not transmitted to us or any third party, and serves solely your convenience. You can delete it at any time via your browser settings.',
+            ],
+          },
+          {
+            h3: 'Fonts',
+            paras: [
+              'Fonts are served locally from this website’s own server. There is no connection to external providers such as Google Fonts; accordingly, no data is transmitted to third parties for this purpose.',
+            ],
+          },
+          {
+            h3: 'Server log files & hosting',
+            paras: [
+              {
+                pre: 'This website is hosted by Google Firebase Hosting (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). When the website is accessed, the hosting provider processes technically necessary access data (e.g. IP address, date/time, file requested, browser type) in order to deliver the page and to ensure stability and security. The legal basis is the legitimate interest in secure operation (Art. 6(1)(f) GDPR). A transfer to the USA cannot be ruled out; it is based on the European Commission’s standard contractual clauses. Details at ',
+                linkHref: 'https://firebase.google.com/support/privacy',
+                linkLabel: 'firebase.google.com/support/privacy',
+                post: '.',
+              },
+            ],
+          },
+          {
+            h3: 'Contacting us',
+            paras: [
+              'If you contact us by e-mail, your information will be processed solely to handle your request and will not be passed on to third parties without your consent (Art. 6(1)(b) and (f) GDPR).',
+            ],
+          },
+          {
+            h3: 'Your rights',
+            paras: [
+              'You have the right at any time to access, rectification, erasure, restriction of processing, data portability and objection. To exercise these rights, please use the contact details given in the imprint. You also have the right to lodge a complaint with a data protection supervisory authority.',
+            ],
+          },
+        ],
+      },
+    ],
+  },
 };

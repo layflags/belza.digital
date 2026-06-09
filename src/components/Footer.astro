@@ -1,11 +1,14 @@
 ---
 import Signet from './Signet.astro';
 import type { Dict } from '../i18n/types';
+import type { Locale } from '../i18n';
 
 interface Props {
   t: Dict;
+  locale: Locale;
 }
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
+const imprintHref = locale === 'de' ? '/de/impressum' : '/impressum';
 ---
 
 <footer>
@@ -13,7 +16,7 @@ const { t } = Astro.props;
     <Signet idPrefix="ft" class="foot-sig" />
     <span>© 2014–2026 Belza Digital GmbH · Munich</span>
     <span class="sp">
-      <a href="/impressum">{t.nav.imprint}</a>
+      <a href={imprintHref}>{t.nav.imprint}</a>
       <a href="https://github.com/layflags" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/martinbelza" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:martin@belza.digital">Email</a>

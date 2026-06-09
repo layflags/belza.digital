@@ -34,7 +34,8 @@ src/
   pages/
     index.astro          /            (EN)
     de/index.astro       /de          (DE)
-    impressum.astro      /impressum   (DE, noindex — einsprachig, Rechtstext)
+    impressum.astro      /impressum     (EN, noindex)
+    de/impressum.astro   /de/impressum  (DE, noindex)
   layouts/Base.astro     <head>, Meta, Anti-FOUC-Theme-Snippet, geteilte Scripts
   components/            Header, Hero, Stats, Services, Work, About, SideProjects,
                          Testimonial, Contact, Footer, Signet, HomeHead
@@ -113,7 +114,9 @@ npm install && npm run build && npm run deploy
 ## Hinweise / To-dos
 
 - Impressum-Rechtstexte vor Go-Live juristisch prüfen lassen. Das Impressum ist
-  bewusst einsprachig deutsch (`noindex`) — kein EN-Pendant.
+  zweisprachig (`/impressum` EN, `/de/impressum` DE, beide `noindex`); Inhalt in
+  `src/i18n/*.ts` unter `imprint`. Die **deutsche Fassung ist rechtlich maßgeblich**,
+  die englische ist eine Service-Übersetzung (Hinweis steht auf der EN-Seite).
 - `public/assets/og-image.png` wird per Canvas-Skript erzeugt (nicht von Hand editieren).
 - `public/sw.js` ist ein selbst-zerstörender „Kill-Switch"-Service-Worker (entfernt
   Alt-Caches früherer Besucher). Muss verbatim unter `/sw.js` bleiben, bis die

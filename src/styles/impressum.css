@@ -153,6 +153,9 @@ nav {
     gap: 5px;
     font-size: 10px;
   }
+  .langtog {
+    font-size: 11px;
+  }
 }
 @media (max-width: 360px) {
   .nav-in {
@@ -222,6 +225,27 @@ nav {
 }
 .themetog .lbl {
   line-height: 1;
+}
+.dim {
+  color: var(--dim);
+}
+.langtog {
+  display: flex;
+  gap: 2px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.langtog a {
+  background: transparent;
+  border: 0;
+  color: var(--dim);
+  font-family: inherit;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.langtog a.is-active {
+  color: var(--acc);
 }
 
 /* head */

@@ -27,8 +27,22 @@ test('theme toggle changes the document theme and persists', async ({ page }) =>
   expect(before).toBeTruthy();
 });
 
-test('impressum page loads with legal content', async ({ page }) => {
+test('imprint (EN) loads with legal content and courtesy-translation note', async ({ page }) => {
   await page.goto('/impressum');
-  await expect(page.locator('.phead h1')).toContainText('Impressum');
+  await expect(page.locator('.phead h1')).toContainText('Imprint');
   await expect(page.locator('.row .v').first()).toContainText('Belza Digital GmbH');
+  await expect(page.locator('.note p')).toContainText('courtesy translation');
+});
+
+test('imprint (DE) loads at /de/impressum', async ({ page }) => {
+  await page.goto('/de/impressum');
+  await expect(page.locator('.phead h1')).toContainText('Impressum');
+  await expect(page.locator('.note')).toHaveCount(0);
+});
+
+test('imprint language toggle switches EN <-> DE', async ({ page }) => {
+  await page.goto('/impressum');
+  await page.locator('.langtog a[data-lang="de"]').click();
+  await expect(page).toHaveURL(/\/de\/impressum$/);
+  await expect(page.locator('.phead h1')).toContainText('Impressum');
 });
