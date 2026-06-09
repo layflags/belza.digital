@@ -8,6 +8,15 @@ Thumbs.db
 # Dependencies
 node_modules/
 
+# Astro build output
+dist/
+.astro/
+
+# Test artifacts
+playwright-report/
+test-results/
+.playwright-mcp/
+
 # Firebase
 .firebase/
 firebase-debug.log

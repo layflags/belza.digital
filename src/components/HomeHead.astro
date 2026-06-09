@@ -1,0 +1,62 @@
+---
+// Per-language <head> meta for the home page: canonical, hreflang alternates,
+// Open Graph and Twitter cards. Marketing meta text is kept in English (as in
+// the original site); only locale-specific URLs/locales differ per language.
+import type { Locale } from '@/i18n';
+import { getDict } from '@/i18n';
+import { buildHomeJsonLd } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getDict(locale);
+
+// URLs are derived from `site` in astro.config.mjs (single source of truth).
+const enUrl = new URL('/', Astro.site).href;
+const deUrl = new URL('/de', Astro.site).href;
+const ogImage = new URL('/assets/og-image.png', Astro.site).href;
+const url = locale === 'de' ? deUrl : enUrl;
+// Open Graph wants language_TERRITORY.
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const ogLocaleAlt = locale === 'de' ? 'en_US' : 'de_DE';
+
+const jsonLd = buildHomeJsonLd(locale, t, Astro.site!.href);
+---
+
+<meta
+  name="description"
+  content="Martin Belza — Frontend Architect & Engineering Lead. 20+ years designing and scaling high-performance web platforms for enterprises, scale-ups and startups. Available for projects."
+/>
+<meta name="author" content="Martin Belza" />
+<link rel="canonical" href={url} />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="de" href={deUrl} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content="Martin Belza — Frontend Architect & Engineering Lead" />
+<meta
+  property="og:description"
+  content="20+ years designing and scaling high-performance web platforms. Frontend architecture, microfrontends, performance & engineering leadership. Available for projects."
+/>
+<meta property="og:site_name" content="Belza Digital" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="Martin Belza, Frontend Architect and Engineering Lead at Belza Digital"
+/>
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Martin Belza — Frontend Architect & Engineering Lead" />
+<meta
+  name="twitter:description"
+  content="20+ years building scalable, high-performance web platforms. Available for frontend-architecture and engineering-lead engagements."
+/>
+<meta name="twitter:image" content={ogImage} />
+
+<JsonLd schemas={jsonLd} />

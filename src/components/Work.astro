@@ -1,0 +1,34 @@
+---
+import type { Dict } from '@/i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<section class="sec" id="work">
+  <div class="sec-h">
+    <span class="num px-num" data-px="70">02</span>
+    <div class="ttl" data-px="-28"><h2>{t.workHead}</h2><span class="note">{t.workSub}</span></div>
+  </div>
+  <div class="proj-list">
+    {
+      t.projects.map((p, i) => (
+        <div class="prow stagger-item" style={`--i:${i}`}>
+          <div class="top">
+            <span class="client">{p.client}</span>
+            <span class="per">{p.period}</span>
+          </div>
+          <div class="role">{p.role}</div>
+          <div class="desc">{p.desc}</div>
+          <div class="tags">
+            {p.tags.map((tag) => (
+              <span class="tag-c">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,5 +1,25 @@
 # MIGRATION.md — Relaunch von belza.digital
 
+> ## Update 2026 — Astro-Migration
+>
+> Nach dem Relaunch (statischer One-Pager mit client-seitigem Rendering aus
+> `content.js`) wurde die Seite auf **Astro + TypeScript + Tailwind v4** migriert,
+> um den Inhalt server-seitig ins HTML zu rendern (besser für Crawler) und die
+> Pflege zu vereinfachen — bei **pixel-identischem** Ergebnis.
+>
+> - Pro Sprache eine statische Seite: `/` (EN) und `/de` (DE), Astro-i18n.
+> - Texte in `src/i18n/en.ts` / `de.ts` (typisierte Dictionaries, Drift-Schutz).
+> - Bestehendes CSS verbatim portiert (`home.css` / `impressum.css`); Tailwind via
+>   PostCSS ohne Preflight.
+> - Interaktivität als Vanilla-JS-Islands (`src/scripts/*`).
+> - Build → `dist/`; Firebase serviert nun `dist/`. CI prüft lint/typecheck/test/build/e2e.
+> - `public/sw.js` (Kill-Switch) und alle Assets unverändert übernommen.
+>
+> Details: `docs/superpowers/specs/2026-06-09-astro-migration-design.md`.
+> Der untenstehende Abschnitt beschreibt den **vorherigen** Relaunch (Historie).
+
+---
+
 Diese Datei beschreibt, wie das bestehende Repository `layflags/belza.digital`
 vom alten Stand (EJS/PostCSS-Build, Kinga + Martin Profile) auf den **Relaunch**
 (statischer One-Pager) umgestellt wird.

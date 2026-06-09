@@ -1,0 +1,136 @@
+---
+import Signet from '@/components/Signet.astro';
+import type { Dict } from '@/i18n/types';
+import type { Locale } from '@/i18n';
+
+interface Props {
+  locale: Locale;
+  t: Dict;
+}
+const { locale, t } = Astro.props;
+const imp = t.imprint;
+const home = locale === 'de' ? '/de' : '/';
+const themeTitle =
+  locale === 'de' ? 'Theme wechseln (Auto / Hell / Dunkel)' : 'Switch theme (Auto / Light / Dark)';
+---
+
+<nav>
+  <div class="nav-in">
+    <a href={home} class="brand" aria-label="Belza Digital — Martin Belza">
+      <Signet idPrefix="nav" class="signet" />
+      <span class="brand-tx">Martin Belza<span class="d">Belza Digital</span></span>
+    </a>
+    <div class="nav-r">
+      <button
+        class="themetog"
+        id="themetog"
+        aria-label="Theme"
+        title={themeTitle}
+        data-label-auto={t.theme.auto}
+        data-label-light={t.theme.light}
+        data-label-dark={t.theme.dark}
+      >
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"
+          ><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"
+          ></circle><path d="M8 1.6a6.4 6.4 0 000 12.8z" fill="currentColor"></path></svg
+        >
+        <span class="lbl">{t.theme.auto}</span>
+      </button>
+      <div class="langtog" role="group" aria-label="Language">
+        <a href="/impressum" data-lang="en" class={locale === 'en' ? 'is-active' : undefined}>EN</a>
+        <span class="dim">/</span>
+        <a href="/de/impressum" data-lang="de" class={locale === 'de' ? 'is-active' : undefined}
+          >DE</a
+        >
+      </div>
+      <a href={home} class="back"><span class="ar">←</span> {imp.back}</a>
+    </div>
+  </div>
+</nav>
+
+<header class="phead">
+  <div class="wrap">
+    <div class="kicker">{imp.kicker}</div>
+    <h1>{imp.h1}</h1>
+    <p>{imp.intro}</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    {
+      imp.authoritativeNote && (
+        <div class="note">
+          <span class="b" />
+          <p>{imp.authoritativeNote}</p>
+        </div>
+      )
+    }
+
+    <section class="sec">
+      <h2>{imp.providerHead}</h2>
+      <div class="rows">
+        {
+          imp.rows.map((row) => (
+            <div class="row">
+              <span class="k">{row.k}</span>
+              <span class="v">
+                {row.big && row.v && <span class="big">{row.v}</span>}
+                {!row.big && row.v && row.v}
+                {row.email && <a href={`mailto:${row.email}`}>{row.email}</a>}
+                {row.lines &&
+                  row.lines.map((line, i) =>
+                    i === 0 ? (
+                      line
+                    ) : (
+                      <>
+                        <br />
+                        {line}
+                      </>
+                    )
+                  )}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    {
+      imp.sections.map((sec) => (
+        <section class="sec">
+          <h2>{sec.h2}</h2>
+          {sec.subsections.map((sub) => (
+            <>
+              <h3>{sub.h3}</h3>
+              {sub.paras.map((p) =>
+                typeof p === 'string' ? (
+                  <p>{p}</p>
+                ) : (
+                  <p>
+                    {p.pre}
+                    <a href={p.linkHref} target="_blank" rel="noopener">
+                      {p.linkLabel}
+                    </a>
+                    {p.post}
+                  </p>
+                )
+              )}
+            </>
+          ))}
+        </section>
+      ))
+    }
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <Signet idPrefix="ft" class="foot-sig" />
+    <span>© 2014–2026 Belza Digital GmbH · {imp.city}</span>
+    <span class="sp">
+      <a href={home}>{imp.footerHome}</a>
+      <a href="mailto:hello@belza.digital">hello@belza.digital</a>
+    </span>
+  </div>
+</footer>

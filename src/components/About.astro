@@ -1,0 +1,50 @@
+---
+import type { Dict } from '@/i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<section class="sec" id="about">
+  <div class="sec-h">
+    <span class="num px-num" data-px="70">03</span>
+    <div class="ttl" data-px="-28"><h2>{t.aboutHead}</h2></div>
+  </div>
+  <div class="split">
+    <div>
+      <div>
+        {t.about.map((p, i) => <p class={i === 0 ? 'lead' : 'about-p'}>{p}</p>)}
+      </div>
+      <div style="height:36px"></div>
+      <div class="kicker" style="margin-bottom:18px">{t.techHead}</div>
+      <div>
+        {
+          t.tech.map((g) => (
+            <div class="tech-grp">
+              <div class="lbl">{g.label}</div>
+              <div class="it">{g.items.join(' · ')}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div>
+      <div class="kicker" style="margin-bottom:22px">{t.expHead}</div>
+      <div>
+        {
+          t.experience.map((e, i) => (
+            <div class="exp-row stagger-item" style={`--i:${i}`}>
+              <div class="per">{e.period}</div>
+              <div>
+                <div class="org">{e.org}</div>
+                <div class="role">{e.role}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
