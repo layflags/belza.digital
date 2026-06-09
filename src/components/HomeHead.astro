@@ -2,20 +2,27 @@
 // Per-language <head> meta for the home page: canonical, hreflang alternates,
 // Open Graph and Twitter cards. Marketing meta text is kept in English (as in
 // the original site); only locale-specific URLs/locales differ per language.
-import type { Locale } from '../i18n';
+import type { Locale } from '@/i18n';
+import { getDict } from '@/i18n';
+import { buildHomeJsonLd } from '@/lib/jsonld';
+import JsonLd from '@/components/JsonLd.astro';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+const t = getDict(locale);
 
 // URLs are derived from `site` in astro.config.mjs (single source of truth).
 const enUrl = new URL('/', Astro.site).href;
 const deUrl = new URL('/de', Astro.site).href;
 const ogImage = new URL('/assets/og-image.png', Astro.site).href;
 const url = locale === 'de' ? deUrl : enUrl;
-const ogLocale = locale === 'de' ? 'de' : 'en';
-const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
+// Open Graph wants language_TERRITORY.
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const ogLocaleAlt = locale === 'de' ? 'en_US' : 'de_DE';
+
+const jsonLd = buildHomeJsonLd(locale, t, Astro.site!.href);
 ---
 
 <meta
@@ -51,3 +58,5 @@ const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
   content="20+ years building scalable, high-performance web platforms. Available for frontend-architecture and engineering-lead engagements."
 />
 <meta name="twitter:image" content={ogImage} />
+
+<JsonLd schemas={jsonLd} />

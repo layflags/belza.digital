@@ -37,14 +37,16 @@ src/
     de/index.astro       /de          (DE)
     impressum.astro      /impressum     (EN, noindex)
     de/impressum.astro   /de/impressum  (DE, noindex)
-  layouts/Base.astro     <head>, Meta, Anti-FOUC-Theme-Snippet, geteilte Scripts
+    404.astro            Custom-404 (noindex; Firebase serviert dist/404.html)
+  layouts/Base.astro     <head>, Meta, Anti-FOUC-Theme-Snippet, Font-Preloads, Scripts
   components/            Header, Hero, Stats, Services, Work, About, SideProjects,
-                         Testimonial, Contact, Footer, Signet, HomeHead
+                         Testimonial, Contact, Footer, Signet, HomeHead, Impressum, JsonLd
   i18n/
     types.ts             Dictionary-Typ — erzwingt Key-Gleichheit EN/DE (Drift-Schutz)
-    en.ts / de.ts        Sprach-Dictionaries (Texte)
+    en.ts / de.ts        Sprach-Dictionaries (Texte, inkl. imprint)
     shared.ts            sprachübergreifend: META, TECH
     index.ts             dicts/getDict/homePath-Helper
+  lib/jsonld.ts          baut das schema.org-@graph für die Startseite
   scripts/               theme.ts, lang.ts, reveal.ts, parallax.ts, bg-field.ts
   styles/
     fonts.css            @font-face (gebündelt) → public/fonts/*.woff2, font-display:swap
@@ -56,7 +58,7 @@ public/                  verbatim ausgeliefert: fonts/*.woff2, assets/og-image.p
                          (sitemap wird per @astrojs/sitemap generiert, nicht eingecheckt)
 test/theme.test.ts       Vitest-Unit-Tests (reine Theme-Logik)
 tests/e2e/smoke.spec.ts  Playwright-Smoke-Test
-astro.config.mjs · postcss.config.mjs · eslint.config.js · .prettierrc · vitest.config.ts · playwright.config.ts
+astro.config.mjs · postcss.config.mjs · eslint.config.js · .prettierrc · .editorconfig · vitest.config.ts · playwright.config.ts
 firebase.json            Hosting-Config (cleanUrls, Redirects, Caching, Security-Header)
 .github/workflows/deploy.yml   CI (lint/typecheck/test/build/e2e) + Deploy bei Push auf master
 ```
@@ -70,6 +72,10 @@ firebase.json            Hosting-Config (cleanUrls, Redirects, Caching, Security
 - **Basissprache Englisch.** `/` rendert EN; ein render-blockierendes Inline-Skript
   schickt zurückkehrende DE-Besucher (`belza-lang`/`navigator.language`) nach `/de`.
 - **Interne Links extensionslos** (`/`, `/de`, `/impressum`) — passend zu `cleanUrls`.
+- **Imports via `@/`-Alias** (= `src/`, in `tsconfig.json` + `astro.config.mjs`) statt
+  relativer Pfade.
+- **SEO:** Startseiten betten schema.org-JSON-LD ein (`lib/jsonld.ts` → `JsonLd.astro`);
+  Sitemap/canonical/hreflang/OG werden aus `site` (astro.config) abgeleitet.
 - **Styling:** Pixel-Identität hat Vorrang. Das ursprüngliche CSS lebt verbatim in
   `home.css` / `impressum.css`; Tailwind ist via PostCSS verdrahtet (Tokens in
   `@theme`), aber **ohne Preflight**, damit Tailwinds Reset das Design nicht verändert.

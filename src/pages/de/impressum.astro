@@ -1,8 +1,8 @@
 ---
-import Base from '../../layouts/Base.astro';
-import Impressum from '../../components/Impressum.astro';
-import { getDict } from '../../i18n';
-import '../../styles/impressum.css';
+import Base from '@/layouts/Base.astro';
+import Impressum from '@/components/Impressum.astro';
+import { getDict } from '@/i18n';
+import '@/styles/impressum.css';
 
 const locale = 'de';
 const t = getDict(locale);
@@ -11,6 +11,6 @@ const t = getDict(locale);
 <Base title={t.imprint.title} lang="de" noindex={true}>
   <Impressum locale={locale} t={t} />
   <script>
-    import '../../scripts/lang.ts';
+    import '@/scripts/lang.ts';
   </script>
 </Base>

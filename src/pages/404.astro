@@ -1,0 +1,41 @@
+---
+import Base from '@/layouts/Base.astro';
+import '@/styles/home.css';
+---
+
+<Base title="404 — Belza Digital" lang="en" noindex={true}>
+  <main class="nf">
+    <div class="wrap">
+      <div class="kicker">Error 404</div>
+      <h1 class="nf-h">Page not found.</h1>
+      <p class="nf-p">The page you’re looking for doesn’t exist or has moved.</p>
+      <a href="/" class="lnk primary">Back to home <span class="ar">→</span></a>
+    </div>
+  </main>
+</Base>
+
+<style>
+  .nf {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .nf .kicker {
+    margin-bottom: 28px;
+  }
+  .nf-h {
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: clamp(40px, 8vw, 90px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    margin-bottom: 24px;
+  }
+  .nf-p {
+    color: var(--mut);
+    font-size: 19px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+    max-width: 46ch;
+  }
+</style>

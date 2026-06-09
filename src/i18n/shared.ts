@@ -1,6 +1,6 @@
 // Language-agnostic data shared by both dictionaries — single source of truth
 // for company metadata and the tech-stack tokens (identical in EN and DE).
-import type { Meta, TechGroup } from './types';
+import type { Meta, TechGroup } from '@/i18n/types';
 
 export const META: Meta = {
   name: 'Martin Belza',

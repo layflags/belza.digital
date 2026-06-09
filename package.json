@@ -6,6 +6,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check",

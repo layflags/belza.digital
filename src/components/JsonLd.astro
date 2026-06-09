@@ -1,0 +1,18 @@
+---
+// Renders schema.org structured data. Multiple schemas are wrapped in @graph.
+interface Props {
+  schemas: object[];
+}
+const { schemas } = Astro.props;
+
+const jsonLd =
+  schemas.length === 1
+    ? { '@context': 'https://schema.org', ...schemas[0] }
+    : { '@context': 'https://schema.org', '@graph': schemas };
+---
+
+{
+  schemas.length > 0 && (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )
+}

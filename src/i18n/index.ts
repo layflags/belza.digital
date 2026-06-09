@@ -1,6 +1,6 @@
-import type { Dict } from './types';
-import { en } from './en';
-import { de } from './de';
+import type { Dict } from '@/i18n/types';
+import { en } from '@/i18n/en';
+import { de } from '@/i18n/de';
 
 export const dicts = { en, de } satisfies Record<string, Dict>;
 

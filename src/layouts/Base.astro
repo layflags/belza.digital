@@ -1,6 +1,6 @@
 ---
-import '../styles/fonts.css';
-import '../styles/global.css';
+import '@/styles/fonts.css';
+import '@/styles/global.css';
 
 interface Props {
   title: string;
@@ -23,6 +23,28 @@ const { title, lang, noindex = false } = Astro.props;
     <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    {/* Preload the core above-the-fold font cuts to avoid a flash with font-display:swap. */}
+    <link
+      rel="preload"
+      href="/fonts/schibsted-grotesk-latin-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/schibsted-grotesk-latin-500.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/jetbrains-mono-latin-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     {/* Apply the stored theme before first paint to avoid a flash of the wrong theme. */}
     <script is:inline>
       (function () {
@@ -45,8 +67,8 @@ const { title, lang, noindex = false } = Astro.props;
   <body>
     <slot />
     <script>
-      import '../scripts/theme.ts';
-      import '../scripts/bg-field.ts';
+      import '@/scripts/theme.ts';
+      import '@/scripts/bg-field.ts';
     </script>
   </body>
 </html>

@@ -46,3 +46,18 @@ test('imprint language toggle switches EN <-> DE', async ({ page }) => {
   await expect(page).toHaveURL(/\/de\/impressum$/);
   await expect(page.locator('.phead h1')).toContainText('Impressum');
 });
+
+test('custom 404 page renders', async ({ page }) => {
+  await page.goto('/this-route-does-not-exist', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.nf-h')).toContainText('Page not found');
+  await expect(page.locator('a.lnk')).toHaveAttribute('href', '/');
+});
+
+test('home embeds Person JSON-LD', async ({ page }) => {
+  await page.goto('/');
+  const ld = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(ld).toBeTruthy();
+  const data = JSON.parse(ld!);
+  const types = data['@graph'].map((n: { '@type': unknown }) => n['@type']);
+  expect(JSON.stringify(types)).toContain('Person');
+});

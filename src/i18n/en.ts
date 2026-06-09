@@ -1,5 +1,5 @@
-import type { Dict } from './types';
-import { META, TECH } from './shared';
+import type { Dict } from '@/i18n/types';
+import { META, TECH } from '@/i18n/shared';
 
 export const en: Dict = {
   meta: META,

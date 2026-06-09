@@ -1,18 +1,18 @@
 ---
-import Base from '../layouts/Base.astro';
-import HomeHead from '../components/HomeHead.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Stats from '../components/Stats.astro';
-import Services from '../components/Services.astro';
-import Work from '../components/Work.astro';
-import About from '../components/About.astro';
-import Testimonial from '../components/Testimonial.astro';
-import SideProjects from '../components/SideProjects.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import { getDict } from '../i18n';
-import '../styles/home.css';
+import Base from '@/layouts/Base.astro';
+import HomeHead from '@/components/HomeHead.astro';
+import Header from '@/components/Header.astro';
+import Hero from '@/components/Hero.astro';
+import Stats from '@/components/Stats.astro';
+import Services from '@/components/Services.astro';
+import Work from '@/components/Work.astro';
+import About from '@/components/About.astro';
+import Testimonial from '@/components/Testimonial.astro';
+import SideProjects from '@/components/SideProjects.astro';
+import Contact from '@/components/Contact.astro';
+import Footer from '@/components/Footer.astro';
+import { getDict } from '@/i18n';
+import '@/styles/home.css';
 
 const locale = 'en';
 const t = getDict(locale);
@@ -50,8 +50,8 @@ const t = getDict(locale);
   <Footer t={t} locale={locale} />
 
   <script>
-    import '../scripts/lang.ts';
-    import '../scripts/reveal.ts';
-    import '../scripts/parallax.ts';
+    import '@/scripts/lang.ts';
+    import '@/scripts/reveal.ts';
+    import '@/scripts/parallax.ts';
   </script>
 </Base>
