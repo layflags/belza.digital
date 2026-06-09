@@ -9,7 +9,11 @@ interface Props {
 }
 const { locale } = Astro.props;
 
-const url = locale === 'de' ? 'https://belza.digital/de' : 'https://belza.digital/';
+// URLs are derived from `site` in astro.config.mjs (single source of truth).
+const enUrl = new URL('/', Astro.site).href;
+const deUrl = new URL('/de', Astro.site).href;
+const ogImage = new URL('/assets/og-image.png', Astro.site).href;
+const url = locale === 'de' ? deUrl : enUrl;
 const ogLocale = locale === 'de' ? 'de' : 'en';
 const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
 ---
@@ -20,9 +24,9 @@ const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
 />
 <meta name="author" content="Martin Belza" />
 <link rel="canonical" href={url} />
-<link rel="alternate" hreflang="en" href="https://belza.digital/" />
-<link rel="alternate" hreflang="de" href="https://belza.digital/de" />
-<link rel="alternate" hreflang="x-default" href="https://belza.digital/" />
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="de" href={deUrl} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={url} />
 <meta property="og:title" content="Martin Belza — Frontend Architect & Engineering Lead" />
@@ -31,7 +35,7 @@ const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
   content="20+ years designing and scaling high-performance web platforms. Frontend architecture, microfrontends, performance & engineering leadership. Available for projects."
 />
 <meta property="og:site_name" content="Belza Digital" />
-<meta property="og:image" content="https://belza.digital/assets/og-image.png" />
+<meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta
@@ -46,4 +50,4 @@ const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
   name="twitter:description"
   content="20+ years building scalable, high-performance web platforms. Available for frontend-architecture and engineering-lead engagements."
 />
-<meta name="twitter:image" content="https://belza.digital/assets/og-image.png" />
+<meta name="twitter:image" content={ogImage} />

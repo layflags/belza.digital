@@ -27,5 +27,12 @@ export default tseslint.config(
       globals: { ...globals.browser },
     },
   },
+  // Node globals for config files (astro/postcss/vitest/playwright configs).
+  {
+    files: ['*.config.{js,mjs,ts}', '*.config.*'],
+    languageOptions: {
+      globals: { ...globals.node },
+    },
+  },
   prettier
 );

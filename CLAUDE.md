@@ -22,8 +22,9 @@ Frontend Architect & Engineering Lead. Zweisprachiger (EN/DE) One-Pager + Impres
 - **Pro Sprache eine statische Seite:** EN ohne Präfix (`/`), DE unter `/de`
   (Astro-i18n, `prefixDefaultLocale: false`). Der Inhalt steht vollständig im HTML
   (gut für Crawler) — kein client-seitiges Content-Rendering mehr.
-- **Keine externen Requests zur Laufzeit:** Schriften lokal eingebettet
-  (`public/assets/fonts.css`), kein Tracking/Analytics, keine Cookies.
+- **Keine externen Requests zur Laufzeit:** Schriften lokal ausgeliefert
+  (`public/fonts/*.woff2`, eingebunden via gebündeltem `src/styles/fonts.css`),
+  kein Tracking/Analytics, keine Cookies.
   Nur `localStorage` für Sprache (`belza-lang`) & Theme (`belza-theme`).
 - **Build → `dist/`**, das Firebase Hosting ausliefert (`firebase.json: "public": "dist"`).
 
@@ -46,11 +47,13 @@ src/
     index.ts             dicts/getDict/homePath-Helper
   scripts/               theme.ts, lang.ts, reveal.ts, parallax.ts, bg-field.ts
   styles/
+    fonts.css            @font-face (gebündelt) → public/fonts/*.woff2, font-display:swap
     global.css           Tailwind (theme+utilities, KEIN Preflight) + @theme-Tokens
     home.css             Home-Design (verbatim aus altem index.html portiert)
     impressum.css        Impressum-Design (verbatim portiert)
-public/                  verbatim ausgeliefert: assets/fonts.css, assets/og-image.png,
-                         Favicons, site.webmanifest, robots.txt, sitemap.xml, sw.js
+public/                  verbatim ausgeliefert: fonts/*.woff2, assets/og-image.png,
+                         Favicons, site.webmanifest, robots.txt, sw.js
+                         (sitemap wird per @astrojs/sitemap generiert, nicht eingecheckt)
 test/theme.test.ts       Vitest-Unit-Tests (reine Theme-Logik)
 tests/e2e/smoke.spec.ts  Playwright-Smoke-Test
 astro.config.mjs · postcss.config.mjs · eslint.config.js · .prettierrc · vitest.config.ts · playwright.config.ts
@@ -76,8 +79,9 @@ firebase.json            Hosting-Config (cleanUrls, Redirects, Caching, Security
   Akzent = `--acc`; das Logo nutzt ihn via `currentColor`. Reine Theme-Logik in
   `scripts/theme.ts` (testbar) getrennt vom DOM-Binding.
 - **Schriften:** Schibsted Grotesk (Display) + JetBrains Mono (Mono/Labels).
-  Eingebettete Schnitte: Schibsted 400/500/600, Mono 400/500 — keine weiteren
-  verwenden, ohne `fonts.css` neu zu erzeugen.
+  Lokale Schnitte (`public/fonts/`): Schibsted 400/500/600, Mono 400/500 — keine
+  weiteren verwenden, ohne die `.woff2` zu ergänzen und `src/styles/fonts.css` zu
+  erweitern.
 - **Bewegung** respektiert `prefers-reduced-motion`; Reveal hat ein Failsafe.
 
 ## Lokal entwickeln & prüfen

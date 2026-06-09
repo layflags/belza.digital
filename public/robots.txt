@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://belza.digital/sitemap.xml
+Sitemap: https://belza.digital/sitemap-index.xml
