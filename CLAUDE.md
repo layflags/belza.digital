@@ -15,10 +15,10 @@ Frontend Architect & Engineering Lead. Zweisprachiger (EN/DE) One-Pager + Impres
 
 ## Tech-Stack
 
-- **Astro** (statischer Output, `output: "static"`) + **TypeScript**, **Tailwind v4**
-  (via PostCSS, ohne Preflight) und schlanke **Vanilla-JS-Islands** für Interaktivität.
+- **Astro** (statischer Output, `output: "static"`) + **TypeScript**, **handgeschriebenes
+  CSS** (kein CSS-Framework) und schlanke **Vanilla-JS-Islands** für Interaktivität.
   Kein UI-Framework (kein React/Vue) — die Interaktivität ist imperativ (Canvas,
-  Scroll-Observer, Theme-Attribut).
+  Scroll-Observer, Theme-Attribut). Kein Tailwind/PostCSS (bewusst minimalistisch).
 - **Pro Sprache eine statische Seite:** EN ohne Präfix (`/`), DE unter `/de`
   (Astro-i18n, `prefixDefaultLocale: false`). Der Inhalt steht vollständig im HTML
   (gut für Crawler) — kein client-seitiges Content-Rendering mehr.
@@ -50,15 +50,16 @@ src/
   scripts/               theme.ts, lang.ts, reveal.ts, parallax.ts, bg-field.ts
   styles/
     fonts.css            @font-face (gebündelt) → public/fonts/*.woff2, font-display:swap
-    global.css           Tailwind (theme+utilities, KEIN Preflight) + @theme-Tokens
-    home.css             Home-Design (verbatim aus altem index.html portiert)
-    impressum.css        Impressum-Design (verbatim portiert)
+    base.css             geteilt: Tokens (:root/[data-theme]), Reset, Body-Basis, Glow,
+                         Nav/Brand/Themetog/Langtog, Footer-Basis, Mobile-Nav-Chrome
+    home.css             Home-spezifisch + kollidierende Selektoren (body, .wrap, .sec …)
+    impressum.css        Impressum-spezifisch + kollidierende Selektoren
 public/                  verbatim ausgeliefert: fonts/*.woff2, assets/og-image.png,
                          Favicons, site.webmanifest, robots.txt, sw.js
                          (sitemap wird per @astrojs/sitemap generiert, nicht eingecheckt)
 test/theme.test.ts       Vitest-Unit-Tests (reine Theme-Logik)
 tests/e2e/smoke.spec.ts  Playwright-Smoke-Test
-astro.config.mjs · postcss.config.mjs · eslint.config.js · .prettierrc · .editorconfig · vitest.config.ts · playwright.config.ts
+astro.config.mjs · eslint.config.js · .prettierrc · .editorconfig · vitest.config.ts · playwright.config.ts
 firebase.json            Hosting-Config (cleanUrls, Redirects, Caching, Security-Header)
 .github/workflows/deploy.yml   CI (lint/typecheck/test/build/e2e) + Deploy bei Push auf master
 ```
@@ -76,10 +77,12 @@ firebase.json            Hosting-Config (cleanUrls, Redirects, Caching, Security
   relativer Pfade.
 - **SEO:** Startseiten betten schema.org-JSON-LD ein (`lib/jsonld.ts` → `JsonLd.astro`);
   Sitemap/canonical/hreflang/OG werden aus `site` (astro.config) abgeleitet.
-- **Styling:** Pixel-Identität hat Vorrang. Das ursprüngliche CSS lebt verbatim in
-  `home.css` / `impressum.css`; Tailwind ist via PostCSS verdrahtet (Tokens in
-  `@theme`), aber **ohne Preflight**, damit Tailwinds Reset das Design nicht verändert.
-  Beide Seiten-Stylesheets laden nie gemeinsam → keine Kaskaden-Konflikte.
+- **Styling:** handgeschriebenes CSS, kein Framework. Geteiltes in `base.css`
+  (immer geladen via `Base.astro`); Seitenspezifisches + kollidierende Selektoren
+  (`body`, `.wrap`, `.nav-in`, `.sec`, Footer) in `home.css` / `impressum.css` — die
+  laden nie gemeinsam, daher keine Kaskaden-Konflikte. Klassen `.reveal/.in/
+  .stagger-item/.hero-inner/[data-px]/.sec/.stats/.hero` sind JS-Hooks (reveal/
+  parallax) — Namen nicht ändern.
 - **Theme:** Auto (System) / Light / Dark, in `localStorage` (`belza-theme`).
   Farben als CSS-Custom-Properties unter `:root` / `html[data-theme="light"]`.
   Akzent = `--acc`; das Logo nutzt ihn via `currentColor`. Reine Theme-Logik in
@@ -131,5 +134,3 @@ npm install && npm run build && npm run deploy
 - `public/sw.js` ist ein selbst-zerstörender „Kill-Switch"-Service-Worker (entfernt
   Alt-Caches früherer Besucher). Muss verbatim unter `/sw.js` bleiben, bis die
   Altbesucher bereinigt sind; danach entfernbar. Die Seite registriert selbst keinen SW.
-- Tailwind läuft via PostCSS, weil `@tailwindcss/vite` aktuell mit Astro 6s
-  Rolldown-Vite inkompatibel ist.
