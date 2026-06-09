@@ -1,0 +1,12 @@
+/* Tailwind v4 — import the theme + utilities layers only, deliberately WITHOUT
+   preflight. Tailwind's own reset would otherwise alter the hand-written design
+   and break visual parity with the previous site. The per-page stylesheets
+   (home.css / impressum.css) carry the actual, verbatim design CSS. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  --font-disp: 'Schibsted Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}

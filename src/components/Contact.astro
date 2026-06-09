@@ -1,0 +1,17 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="kicker">{t.footerNote}</div>
+    <h2>{t.contactHead}</h2>
+    <p>{t.contactSub}</p>
+    <div><a class="mail" href="mailto:martin@belza.digital">martin@belza.digital</a></div>
+  </div>
+</section>

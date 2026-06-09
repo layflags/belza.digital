@@ -1,0 +1,23 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">{t.hero.roleLine}</div>
+    <div class="avail"><span class="ld"></span>{t.hero.status}</div>
+    <h1 class="hl">{t.hero.headlinePre} <em>{t.hero.headlineEm}</em> {t.hero.headlinePost}</h1>
+    <p class="sub">{t.hero.sub}</p>
+    <div class="cta-row">
+      <a href="#contact" class="lnk primary">{t.hero.ctaPrimary} <span class="ar">→</span></a><a
+        href="#work"
+        class="lnk">{t.hero.ctaSecondary}</a
+      >
+    </div>
+  </div>
+</section>

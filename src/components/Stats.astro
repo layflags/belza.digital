@@ -1,0 +1,19 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<div class="stats">
+  {
+    t.stats.map((s, i) => (
+      <div class="stat stagger-item" style={`--i:${i}`}>
+        <div class="v">{s.value}</div>
+        <div class="l">{s.label}</div>
+      </div>
+    ))
+  }
+</div>

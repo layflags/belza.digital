@@ -1,0 +1,48 @@
+---
+import Signet from './Signet.astro';
+import type { Dict } from '../i18n/types';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  t: Dict;
+}
+const { locale, t } = Astro.props;
+const themeTitle =
+  locale === 'de' ? 'Theme wechseln (Auto / Hell / Dunkel)' : 'Switch theme (Auto / Light / Dark)';
+---
+
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="brand" aria-label="Belza Digital — Martin Belza">
+      <Signet idPrefix="nav" class="signet" />
+      <span class="brand-tx">Martin Belza<span class="d">Belza Digital</span></span>
+    </a>
+    <div class="nav-links">
+      <a class="nl" href="#work">{t.nav.work}</a>
+      <a class="nl" href="#services">{t.nav.services}</a>
+      <a class="nl" href="#about">{t.nav.about}</a>
+      <button
+        class="themetog"
+        id="themetog"
+        aria-label="Theme mode"
+        title={themeTitle}
+        data-label-auto={t.theme.auto}
+        data-label-light={t.theme.light}
+        data-label-dark={t.theme.dark}
+      >
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"
+          ><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"
+          ></circle><path d="M8 1.6a6.4 6.4 0 000 12.8z" fill="currentColor"></path></svg
+        >
+        <span class="lbl">{t.theme.auto}</span>
+      </button>
+      <div class="langtog" role="group" aria-label="Language">
+        <a href="/" data-lang="en" class={locale === 'en' ? 'is-active' : undefined}>EN</a>
+        <span class="dim">/</span>
+        <a href="/de" data-lang="de" class={locale === 'de' ? 'is-active' : undefined}>DE</a>
+      </div>
+      <a href="#contact" class="booklink">{t.nav.cta}</a>
+    </div>
+  </div>
+</nav>

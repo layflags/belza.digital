@@ -1,0 +1,16 @@
+---
+import type { Dict } from '../i18n/types';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+
+<section class="sec">
+  <div class="quote">
+    <div class="mk">Testimonial</div>
+    <q>{t.testimonial.quote}</q>
+    <div class="by"><b>{t.testimonial.author}</b> · {t.testimonial.role}</div>
+  </div>
+</section>

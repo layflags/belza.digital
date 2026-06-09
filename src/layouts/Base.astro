@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  lang: string;
+  noindex?: boolean;
+}
+const { title, lang, noindex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/assets/fonts.css" />
+    {/* Apply the stored theme before first paint to avoid a flash of the wrong theme. */}
+    <script is:inline>
+      (function () {
+        try {
+          const p = localStorage.getItem('belza-theme') || 'auto';
+          const t =
+            p === 'auto'
+              ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+              : p;
+          document.documentElement.setAttribute('data-theme', t);
+        } catch {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/theme.ts';
+      import '../scripts/bg-field.ts';
+    </script>
+  </body>
+</html>

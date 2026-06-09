@@ -1,0 +1,11 @@
+dist/
+.astro/
+node_modules/
+playwright-report/
+test-results/
+package-lock.json
+# static assets served verbatim — not meant to be reformatted
+public/
+# prose docs are kept hand-formatted (avoid opinionated markdown reflow)
+*.md
+**/*.md

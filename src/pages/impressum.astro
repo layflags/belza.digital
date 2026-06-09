@@ -1,0 +1,187 @@
+---
+import Base from '../layouts/Base.astro';
+import Signet from '../components/Signet.astro';
+import '../styles/impressum.css';
+---
+
+<Base title="Impressum — Belza Digital GmbH" lang="de" noindex={true}>
+  <nav>
+    <div class="nav-in">
+      <a href="/" class="brand" aria-label="Belza Digital — Martin Belza">
+        <Signet idPrefix="nav" class="signet" />
+        <span class="brand-tx">Martin Belza<span class="d">Belza Digital</span></span>
+      </a>
+      <div class="nav-r">
+        <button
+          class="themetog"
+          id="themetog"
+          aria-label="Theme"
+          title="Theme wechseln (Auto / Hell / Dunkel)"
+          data-label-auto="Auto"
+          data-label-light="Hell"
+          data-label-dark="Dunkel"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"
+            ><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"
+            ></circle><path d="M8 1.6a6.4 6.4 0 000 12.8z" fill="currentColor"></path></svg
+          >
+          <span class="lbl">Auto</span>
+        </button>
+        <a href="/" class="back"><span class="ar">←</span> Zurück</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="phead">
+    <div class="wrap">
+      <div class="kicker">Belza Digital GmbH</div>
+      <h1>Impressum</h1>
+      <p>
+        Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz) sowie rechtliche Hinweise und Datenschutz.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="sec">
+        <h2>Anbieter</h2>
+        <div class="rows">
+          <div class="row">
+            <span class="k">Unternehmen</span><span class="v"
+              ><span class="big">Belza Digital GmbH</span></span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Anschrift</span><span class="v"
+              >Amalienstraße 71, RGB2<br />80799 München, Deutschland</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Geschäftsführer</span><span class="v"
+              >Martin Belza (vertretungsberechtigt)</span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Telefon</span><span class="v">+49 (0)89 92927721</span>
+          </div>
+          <div class="row">
+            <span class="k">Telefax</span><span class="v">+49 (0)3222 3944878</span>
+          </div>
+          <div class="row">
+            <span class="k">E-Mail</span><span class="v"
+              ><a href="mailto:hello@belza.digital">hello@belza.digital</a></span
+            >
+          </div>
+          <div class="row">
+            <span class="k">Registergericht</span><span class="v">Amtsgericht München</span>
+          </div>
+          <div class="row">
+            <span class="k">Registernummer</span><span class="v">HRB 222344</span>
+          </div>
+          <div class="row">
+            <span class="k">USt-IdNr. (§ 27a UStG)</span><span class="v">DE303717499</span>
+          </div>
+          <div class="row">
+            <span class="k">Steuernummer</span><span class="v">143/119/61455</span>
+          </div>
+          <div class="row">
+            <span class="k">Inhaltlich verantwortlich</span><span class="v"
+              >Martin Belza (§ 18 Abs. 2 MStV, Anschrift wie oben)</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2>Rechtliche Hinweise</h2>
+        <h3>§ 1 Haftung für Inhalte</h3>
+        <p>
+          Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die
+          Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr
+          übernommen. Die Nutzung der Inhalte erfolgt auf eigene Gefahr. Mit der reinen Nutzung der
+          Website kommt kein Vertragsverhältnis zwischen Nutzer und Anbieter zustande.
+        </p>
+        <h3>§ 2 Externe Links</h3>
+        <p>
+          Diese Website enthält Verknüpfungen zu Websites Dritter („externe Links"). Diese Websites
+          unterliegen der Haftung der jeweiligen Betreiber. Zum Zeitpunkt der Verlinkung waren keine
+          Rechtsverstöße erkennbar. Auf die aktuelle und zukünftige Gestaltung der verlinkten Seiten
+          hat der Anbieter keinen Einfluss. Bei Bekanntwerden von Rechtsverstößen werden derartige
+          Links unverzüglich entfernt.
+        </p>
+        <h3>§ 3 Urheber- und Leistungsschutzrechte</h3>
+        <p>
+          Die auf dieser Website veröffentlichten Inhalte unterliegen dem deutschen Urheber- und
+          Leistungsschutzrecht. Jede nicht zugelassene Verwertung bedarf der vorherigen
+          schriftlichen Zustimmung des Anbieters bzw. Rechteinhabers. Dies gilt insbesondere für
+          Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung und Wiedergabe in
+          elektronischen Systemen. Kopien und Downloads für den persönlichen, privaten und
+          nicht-kommerziellen Gebrauch sind gestattet.
+        </p>
+      </section>
+
+      <section class="sec">
+        <h2>Datenschutz</h2>
+        <h3>Überblick</h3>
+        <p>
+          Diese Website ist eine statische Seite und verzichtet bewusst auf Tracking, Analyse-Tools
+          und Werbe-Cookies. Es findet keine Profilbildung statt. Verantwortlicher im Sinne der
+          DSGVO ist die im Impressum genannte Belza Digital GmbH.
+        </p>
+        <h3>Lokale Einstellungen (localStorage)</h3>
+        <p>
+          Zur Speicherung deiner Sprach- und Theme-Auswahl (Hell/Dunkel) verwendet die Seite den
+          lokalen Speicher deines Browsers (localStorage). Diese Angaben verbleiben ausschließlich
+          auf deinem Gerät, werden nicht an uns oder Dritte übertragen und dienen allein deinem
+          Bedienkomfort. Du kannst sie jederzeit über deine Browser-Einstellungen löschen.
+        </p>
+        <h3>Schriften</h3>
+        <p>
+          Schriftarten werden lokal vom Server dieser Website ausgeliefert. Es besteht keine
+          Verbindung zu externen Anbietern wie Google Fonts; entsprechend werden hierfür keine Daten
+          an Dritte übertragen.
+        </p>
+        <h3>Server-Logfiles &amp; Hosting</h3>
+        <p>
+          Diese Website wird bei Google Firebase Hosting gehostet (Google Ireland Limited, Gordon
+          House, Barrow Street, Dublin 4, Irland). Beim Aufruf der Website verarbeitet der
+          Hosting-Provider technisch notwendige Zugriffsdaten (z. B. IP-Adresse, Datum/Uhrzeit,
+          abgerufene Datei, Browsertyp) zur Auslieferung der Seite sowie zur Gewährleistung von
+          Stabilität und Sicherheit. Rechtsgrundlage ist das berechtigte Interesse an einem sicheren
+          Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA kann nicht
+          ausgeschlossen werden; sie stützt sich auf die Standardvertragsklauseln der EU-Kommission.
+          Details unter <a
+            href="https://firebase.google.com/support/privacy"
+            target="_blank"
+            rel="noopener">firebase.google.com/support/privacy</a
+          >.
+        </p>
+        <h3>Kontaktaufnahme</h3>
+        <p>
+          Wenn du uns per E-Mail kontaktierst, werden deine Angaben ausschließlich zur Bearbeitung
+          der Anfrage verarbeitet und nicht ohne deine Einwilligung an Dritte weitergegeben (Art. 6
+          Abs. 1 lit. b und f DSGVO).
+        </p>
+        <h3>Deine Rechte</h3>
+        <p>
+          Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
+          Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Wende dich dazu an die im Impressum
+          genannten Kontaktdaten. Zudem besteht ein Beschwerderecht bei einer
+          Datenschutz-Aufsichtsbehörde.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot-in">
+      <Signet idPrefix="ft" class="foot-sig" />
+      <span>© 2014–2026 Belza Digital GmbH · München</span>
+      <span class="sp">
+        <a href="/">Start</a>
+        <a href="mailto:hello@belza.digital">hello@belza.digital</a>
+      </span>
+    </div>
+  </footer>
+</Base>

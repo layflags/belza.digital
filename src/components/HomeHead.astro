@@ -1,0 +1,49 @@
+---
+// Per-language <head> meta for the home page: canonical, hreflang alternates,
+// Open Graph and Twitter cards. Marketing meta text is kept in English (as in
+// the original site); only locale-specific URLs/locales differ per language.
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const url = locale === 'de' ? 'https://belza.digital/de' : 'https://belza.digital/';
+const ogLocale = locale === 'de' ? 'de' : 'en';
+const ogLocaleAlt = locale === 'de' ? 'en' : 'de';
+---
+
+<meta
+  name="description"
+  content="Martin Belza — Frontend Architect & Engineering Lead. 20+ years designing and scaling high-performance web platforms for enterprises, scale-ups and startups. Available for projects."
+/>
+<meta name="author" content="Martin Belza" />
+<link rel="canonical" href={url} />
+<link rel="alternate" hreflang="en" href="https://belza.digital/" />
+<link rel="alternate" hreflang="de" href="https://belza.digital/de" />
+<link rel="alternate" hreflang="x-default" href="https://belza.digital/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content="Martin Belza — Frontend Architect & Engineering Lead" />
+<meta
+  property="og:description"
+  content="20+ years designing and scaling high-performance web platforms. Frontend architecture, microfrontends, performance & engineering leadership. Available for projects."
+/>
+<meta property="og:site_name" content="Belza Digital" />
+<meta property="og:image" content="https://belza.digital/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="Martin Belza, Frontend Architect and Engineering Lead at Belza Digital"
+/>
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Martin Belza — Frontend Architect & Engineering Lead" />
+<meta
+  name="twitter:description"
+  content="20+ years building scalable, high-performance web platforms. Available for frontend-architecture and engineering-lead engagements."
+/>
+<meta name="twitter:image" content="https://belza.digital/assets/og-image.png" />

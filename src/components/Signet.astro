@@ -1,0 +1,46 @@
+---
+// The Belza signet (logo mark). `idPrefix` keeps the SVG gradient ids unique
+// per instance so multiple signets on one page don't collide.
+interface Props {
+  idPrefix: string;
+  class?: string;
+}
+const { idPrefix, class: className } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 300 450"
+  xmlns="http://www.w3.org/2000/svg"
+  fill-rule="evenodd"
+  clip-rule="evenodd"
+  fill="currentColor"
+  aria-hidden="true"
+  ><path fill={`url(#${idPrefix}A)`} d="M100 150h100v100H100z"></path><path
+    d="M0 350h200v100H0V350z"
+    fill={`url(#${idPrefix}B)`}></path><path
+    d="M0 0h100v250L0 150V0zM300 250v100L200 450V150l100 100z"></path><defs
+    ><linearGradient
+      id={`${idPrefix}A`}
+      x2="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(100 0 0 100 100 200)"
+      ><stop offset="0%" stop-color="currentColor" stop-opacity=".45"></stop><stop
+        offset="25%"
+        stop-color="currentColor"
+        stop-opacity=".5"></stop><stop offset="75%" stop-color="currentColor" stop-opacity=".5"
+      ></stop><stop offset="100%" stop-color="currentColor" stop-opacity=".45"
+      ></stop></linearGradient
+    ><linearGradient
+      id={`${idPrefix}B`}
+      x2="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="matrix(200 0 0 100 0 400)"
+      ><stop offset="0%" stop-color="currentColor" stop-opacity=".5"></stop><stop
+        offset="87%"
+        stop-color="currentColor"
+        stop-opacity=".5"></stop><stop offset="100%" stop-color="currentColor" stop-opacity=".45"
+      ></stop></linearGradient
+    ></defs
+  ></svg
+>

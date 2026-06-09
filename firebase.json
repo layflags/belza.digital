@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "belza-digital",
-    "public": "public",
+    "public": "dist",
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [

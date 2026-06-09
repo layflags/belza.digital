@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+import HomeHead from '../components/HomeHead.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Services from '../components/Services.astro';
+import Work from '../components/Work.astro';
+import About from '../components/About.astro';
+import Testimonial from '../components/Testimonial.astro';
+import SideProjects from '../components/SideProjects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { getDict } from '../i18n';
+import '../styles/home.css';
+
+const locale = 'en';
+const t = getDict(locale);
+---
+
+<Base title="Martin Belza — Frontend Architect · Belza Digital" lang="en">
+  {/* Send returning/German-preferring visitors to their chosen language. */}
+  <script is:inline slot="head">
+    (function () {
+      try {
+        const s = localStorage.getItem('belza-lang');
+        let pref = s || ((navigator.language || 'en').slice(0, 2) === 'de' ? 'de' : 'en');
+        if (pref !== 'de' && pref !== 'en') pref = 'en';
+        if (pref === 'de') location.replace('/de');
+      } catch {
+        /* localStorage unavailable — stay on the default language */
+      }
+    })();
+  </script>
+  <HomeHead slot="head" locale={locale} />
+
+  <Header locale={locale} t={t} />
+  <main id="top">
+    <div class="wrap">
+      <Hero t={t} />
+      <Stats t={t} />
+      <Services t={t} />
+      <Work t={t} />
+      <About t={t} />
+      <Testimonial t={t} />
+      <SideProjects t={t} />
+    </div>
+    <Contact t={t} />
+  </main>
+  <Footer t={t} />
+
+  <script>
+    import '../scripts/lang.ts';
+    import '../scripts/reveal.ts';
+    import '../scripts/parallax.ts';
+  </script>
+</Base>
