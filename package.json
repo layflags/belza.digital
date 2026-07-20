@@ -26,7 +26,7 @@
     "eslint": "^9.39.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.7.0",
-    "firebase-tools": "^14.19.1",
+    "firebase-tools": "^15.24.0",
     "globals": "^17.6.0",
     "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
